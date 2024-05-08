@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Start And Options"
+config/name="Rock thrower"
 run/main_scene="res://scenes/menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0.245633, 0.00133757, 0.254447, 1)
 config/icon="res://icon.svg"
 
 [autoload]
