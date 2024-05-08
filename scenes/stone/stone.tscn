@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ph57i0v3pa0b"]
+
+[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="1_0sibd"]
+[ext_resource type="Script" path="res://scenes/stone/stone.gd" id="1_auo2j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dpxsa"]
+radius = 16.0
+
+[sub_resource type="Gradient" id="Gradient_e1ojt"]
+offsets = PackedFloat32Array(0, 0.835498)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m33o7"]
+gradient = SubResource("Gradient_e1ojt")
+fill = 1
+fill_from = Vector2(0.507645, 0.474006)
+
+[node name="Stone" type="RigidBody2D"]
+collision_mask = 3
+script = ExtResource("1_auo2j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dpxsa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("1_0sibd")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_m33o7")
