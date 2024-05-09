@@ -12,10 +12,10 @@ fill = 1
 fill_from = Vector2(0.48318, 0.51682)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2s8lq"]
-size = Vector2(110, 106)
+size = Vector2(106, 96.5)
 
 [node name="Spike" type="Node2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_ilh7j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -30,7 +30,8 @@ texture = SubResource("GradientTexture2D_klndt")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, -1)
+position = Vector2(2.38419e-07, 4.76837e-07)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2s8lq")
 
 [connection signal="body_entered" from="Area2D" to="." method="process_collision_with_player"]

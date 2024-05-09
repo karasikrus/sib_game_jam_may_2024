@@ -6,16 +6,15 @@ var can_player_throw = false
 var follow_target : Node2D = null
 var is_follow_active : bool = false
 
-var throw_charge_timer : Timer
 @export var max_time_throw_charge = 2.0
 @export var min_throw_power : float = 100
 @export var max_throw_power : float = 450
 
+@onready var throw_charge_timer = $ThrowChargeTimer
+
 var spawn_position : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	throw_charge_timer = Timer.new()
-	add_child(throw_charge_timer)
 	spawn_position = position
 	pass # Replace with function body.
 
@@ -73,7 +72,7 @@ func throw():
 	(follow_target as Player).is_stone_in_hands = false
 	var normalized_time = 1 - throw_charge_timer.time_left / max_time_throw_charge
 	var final_throw_power = lerp(min_throw_power, max_throw_power, normalized_time)
-	apply_central_impulse(Vector2(1 * sign(follow_target.face_direction),-0.8) * final_throw_power)
+	apply_central_impulse(Vector2(1 * sign(follow_target.face_direction),-1) * final_throw_power)
 	
 
 func _on_pickup_area_body_entered(body : Node2D):

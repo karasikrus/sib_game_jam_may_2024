@@ -28,6 +28,8 @@ collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_2ld5j")
 lock_rotation = true
 script = ExtResource("1_auo2j")
+min_throw_power = 200.0
+max_throw_power = 800.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dpxsa")
@@ -45,6 +47,9 @@ texture_scale = 4.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource("CircleShape2D_c2e1q")
 debug_color = Color(0.196152, 0.504167, 0, 0.42)
+
+[node name="ThrowChargeTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]
 [connection signal="body_exited" from="PickupArea" to="." method="_on_pickup_area_body_exited"]
