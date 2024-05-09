@@ -6,19 +6,19 @@ class_name Player
 var face_direction := 1
 var x_dir := 1
 
-@export var max_speed: float = 560
-@export var acceleration: float = 2880
-@export var turning_acceleration : float = 9600
-@export var deceleration: float = 3200
+@export var max_speed: float = 560/2
+@export var acceleration: float = 2880/2
+@export var turning_acceleration : float = 9600/2
+@export var deceleration: float = 3200/2
 # ------------------------------------------ #
 
 # GRAVITY ----- #
-@export var gravity_acceleration : float = 3840
+@export var gravity_acceleration : float = 2500
 @export var gravity_max : float = 1020
 # ------------- #
 
 # JUMP VARAIABLES ------------------- #
-@export var jump_force : float = 1400
+@export var jump_force : float = 600
 @export var jump_cut : float = 0.25
 @export var jump_gravity_max : float = 500
 @export var jump_hang_treshold : float = 2.0
@@ -35,6 +35,7 @@ var is_jumping := false
 var is_stone_in_hands := false
 
 @export var stone: Stone
+@onready var stone_locator: Node2D = %StoneLocator
 
 # All inputs we want to keep track of
 func get_input() -> Dictionary:
@@ -58,7 +59,11 @@ func _physics_process(delta: float) -> void:
 
 
 func x_movement(delta: float) -> void:
-	x_dir = get_input()["x"]
+	if is_stone_in_hands:
+		x_dir = 0
+		set_direction(get_input()["x"])
+	else:
+		x_dir = get_input()["x"]
 	
 	# Stop if we're not doing movement inputs.
 	if x_dir == 0: 
@@ -97,6 +102,8 @@ func jump_logic(_delta: float) -> void:
 		jump_coyote_timer = jump_coyote
 		is_jumping = false
 	if get_input()["just_jump"]:
+		if is_stone_in_hands:
+			return
 		jump_buffer_timer = jump_buffer
 	
 	# Jump if grounded, there is jump input, and we aren't jumping already

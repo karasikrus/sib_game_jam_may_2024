@@ -8,15 +8,15 @@ radius = 28.0
 height = 60.0
 
 [sub_resource type="Gradient" id="Gradient_eusie"]
-offsets = PackedFloat32Array(0, 0.489177, 0.78355)
-colors = PackedColorArray(1, 1, 1, 1, 0.477933, 0.482478, 0.514059, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.236264, 0.450549, 0.824176)
+colors = PackedColorArray(0.766444, 0.768477, 0.782605, 1, 0.477933, 0.482478, 0.514059, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ifps7"]
 gradient = SubResource("Gradient_eusie")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 3
 script = ExtResource("1_pulaj")
 
@@ -31,8 +31,10 @@ shape = SubResource("CapsuleShape2D_hnvo4")
 debug_color = Color(0.756675, 0.0263507, 3.85046e-07, 0.42)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-0.999996, -32)
-scale = Vector2(2.34375, 2.90625)
-energy = 8.16
-shadow_enabled = true
+position = Vector2(0, -31)
 texture = SubResource("GradientTexture2D_ifps7")
+texture_scale = 1.4
+
+[node name="StoneLocator" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -49)
