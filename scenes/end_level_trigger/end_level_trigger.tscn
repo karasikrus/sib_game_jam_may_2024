@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5icybnplwwlx"]
+
+[ext_resource type="Script" path="res://scenes/end_level_trigger/end_level_trigger.gd" id="1_ra76b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu716"]
+size = Vector2(130, 41)
+
+[node name="EndLevelTrigger" type="Node2D"]
+script = ExtResource("1_ra76b")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(55, 10.5)
+shape = SubResource("RectangleShape2D_mu716")
+
+[connection signal="body_entered" from="Area2D" to="." method="process_collision_with_player"]
