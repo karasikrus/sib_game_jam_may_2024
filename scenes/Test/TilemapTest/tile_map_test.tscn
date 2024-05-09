@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwsob4g505hmh"]
+[gd_scene load_steps=31 format=3 uid="uid://bwsob4g505hmh"]
 
 [ext_resource type="Texture2D" uid="uid://cakba16dc21yo" path="res://scenes/Test/TilemapTest/Terrain (32x32).png" id="1_2s3bb"]
 [ext_resource type="PackedScene" uid="uid://ph57i0v3pa0b" path="res://scenes/stone/stone.tscn" id="1_hx57r"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b28o3lmbjqw6p" path="res://scenes/light_setup/light_setup.tscn" id="3_4nxkn"]
 [ext_resource type="PackedScene" uid="uid://dy8rf7c7b6h00" path="res://scenes/spike/spike.tscn" id="5_4yugw"]
 [ext_resource type="PackedScene" uid="uid://b5icybnplwwlx" path="res://scenes/end_level_trigger/end_level_trigger.tscn" id="5_ptqrm"]
+[ext_resource type="PackedScene" uid="uid://i1r2o8sh1u4" path="res://scenes/light_fearing_spike/light_fearing_spike.tscn" id="7_m0c5x"]
 
 [sub_resource type="Gradient" id="Gradient_y8uwq"]
 colors = PackedColorArray(0.201256, 0.0252686, 0.28125, 1, 0.267086, 0.105604, 0.340488, 1)
@@ -652,3 +653,6 @@ visible = false
 
 [node name="EndLevelTrigger" parent="." instance=ExtResource("5_ptqrm")]
 position = Vector2(173, 712)
+
+[node name="LightFearingSpike" parent="." instance=ExtResource("7_m0c5x")]
+position = Vector2(866, 288)

@@ -13,16 +13,20 @@ var is_follow_active : bool = false
 @onready var throw_charge_timer = $ThrowChargeTimer
 
 var spawn_position : Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_position = position
 	pass # Replace with function body.
 
 func respawn():
+	linear_velocity = Vector2(0, 0)
+	angular_velocity = 0
 	position = spawn_position
 	
-	
+		
 func _physics_process(delta: float) -> void:
+
 	follow()
 	check_input()
 		
