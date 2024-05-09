@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy8rf7c7b6h00"]
+
+[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="1_dvlxq"]
+[ext_resource type="Script" path="res://scenes/spike/spike.gd" id="1_ilh7j"]
+
+[sub_resource type="Gradient" id="Gradient_mho1r"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_klndt"]
+gradient = SubResource("Gradient_mho1r")
+fill = 1
+fill_from = Vector2(0.48318, 0.51682)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2s8lq"]
+size = Vector2(110, 106)
+
+[node name="Spike" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_ilh7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dvlxq")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-2, 0.499996)
+scale = Vector2(1.96875, 2.04687)
+texture = SubResource("GradientTexture2D_klndt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_2s8lq")
+
+[connection signal="body_entered" from="Area2D" to="." method="process_collision_with_player"]

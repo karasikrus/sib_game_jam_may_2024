@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://bwsob4g505hmh"]
+[gd_scene load_steps=29 format=3 uid="uid://bwsob4g505hmh"]
 
 [ext_resource type="Texture2D" uid="uid://cakba16dc21yo" path="res://scenes/Test/TilemapTest/Terrain (32x32).png" id="1_2s3bb"]
 [ext_resource type="PackedScene" uid="uid://ph57i0v3pa0b" path="res://scenes/stone/stone.tscn" id="1_hx57r"]
 [ext_resource type="PackedScene" uid="uid://bimfltqaiqd3v" path="res://scenes/player/player.tscn" id="2_tkja7"]
 [ext_resource type="PackedScene" uid="uid://b28o3lmbjqw6p" path="res://scenes/light_setup/light_setup.tscn" id="3_4nxkn"]
+[ext_resource type="PackedScene" uid="uid://dy8rf7c7b6h00" path="res://scenes/spike/spike.tscn" id="5_4yugw"]
 
 [sub_resource type="Gradient" id="Gradient_y8uwq"]
 colors = PackedColorArray(0.201256, 0.0252686, 0.28125, 1, 0.267086, 0.105604, 0.340488, 1)
@@ -635,3 +636,8 @@ zoom = Vector2(5, 5)
 position = Vector2(127, 302)
 
 [node name="LightSetup" parent="." instance=ExtResource("3_4nxkn")]
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="Spike" parent="Spikes" instance=ExtResource("5_4yugw")]
+position = Vector2(678, 287)

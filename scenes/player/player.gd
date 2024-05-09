@@ -32,10 +32,15 @@ var jump_buffer_timer : float = 0
 var is_jumping := false
 # ----------------------------------- #
 
+
+var spawn_position : Vector2
 var is_stone_in_hands := false
 
-@export var stone: Stone
 @onready var stone_locator: Node2D = %StoneLocator
+
+
+func _ready():
+	spawn_position = position
 
 # All inputs we want to keep track of
 func get_input() -> Dictionary:
@@ -160,3 +165,7 @@ func timers(delta: float) -> void:
 	jump_coyote_timer -= delta
 	jump_buffer_timer -= delta
 
+
+func respawn() -> void:
+	position = spawn_position
+	

@@ -10,17 +10,22 @@ var throw_charge_timer : Timer
 @export var max_time_throw_charge = 2.0
 @export var min_throw_power : float = 100
 @export var max_throw_power : float = 450
+
+var spawn_position : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	throw_charge_timer = Timer.new()
 	add_child(throw_charge_timer)
+	spawn_position = position
 	pass # Replace with function body.
 
-
+func respawn():
+	position = spawn_position
+	
+	
 func _physics_process(delta: float) -> void:
 	follow()
 	check_input()
-	
 		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -79,3 +84,5 @@ func _on_pickup_area_body_entered(body : Node2D):
 func _on_pickup_area_body_exited(body):
 	if body.is_in_group("player"):
 		is_player_near = false
+		
+
