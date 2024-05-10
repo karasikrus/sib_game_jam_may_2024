@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bimfltqaiqd3v"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pulaj"]
-[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="1_wwwx5"]
+[ext_resource type="Texture2D" uid="uid://cjusdb72r5cdj" path="res://scenes/player/Man_Idle.png" id="2_h57kc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnvo4"]
-radius = 28.0
+radius = 24.0
 height = 60.0
 
 [sub_resource type="Gradient" id="Gradient_eusie"]
@@ -21,12 +21,14 @@ collision_mask = 3
 script = ExtResource("1_pulaj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.8147e-06, -32)
-scale = Vector2(0.476563, 0.484375)
-texture = ExtResource("1_wwwx5")
+position = Vector2(1, -37)
+scale = Vector2(0.735, 0.735)
+texture = ExtResource("2_h57kc")
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -26)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hnvo4")
 debug_color = Color(0.756675, 0.0263507, 3.85046e-07, 0.42)
 

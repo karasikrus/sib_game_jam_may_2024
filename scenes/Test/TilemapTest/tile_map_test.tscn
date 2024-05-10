@@ -617,7 +617,10 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_mdeb6")
 
 [node name="LightFearingSpike" parent="." instance=ExtResource("7_m0c5x")]
-position = Vector2(858, 305)
+position = Vector2(820, 301)
+
+[node name="LightFearingSpike2" parent="." instance=ExtResource("7_m0c5x")]
+position = Vector2(1222, 459)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_g05ws")
@@ -652,7 +655,6 @@ min_throw_power = 50.0
 max_throw_power = 600.0
 
 [node name="LightSetup" parent="." instance=ExtResource("3_4nxkn")]
-visible = false
 
 [node name="EndLevelTrigger" parent="." instance=ExtResource("5_ptqrm")]
 position = Vector2(173, 712)

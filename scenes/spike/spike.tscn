@@ -32,6 +32,7 @@ scale = Vector2(1.96875, 2.04687)
 texture = SubResource("GradientTexture2D_klndt")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(2.38419e-07, 4.76837e-07)

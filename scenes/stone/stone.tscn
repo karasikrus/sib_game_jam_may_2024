@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=3 uid="uid://ph57i0v3pa0b"]
 
-[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="1_0sibd"]
 [ext_resource type="Script" path="res://scenes/stone/stone.gd" id="1_auo2j"]
+[ext_resource type="Texture2D" uid="uid://deaq6iqa2o4ln" path="res://scenes/stone/stone.png" id="2_unyqo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2ld5j"]
 friction = 0.8
 bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dpxsa"]
-radius = 16.0
+radius = 11.0
 
 [sub_resource type="Gradient" id="Gradient_e1ojt"]
 offsets = PackedFloat32Array(0, 0.835498)
@@ -18,6 +18,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_e1ojt")
 fill = 1
 fill_from = Vector2(0.507645, 0.474006)
+fill_to = Vector2(0.931624, 0.0940171)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c2e1q"]
 radius = 23.0
@@ -34,19 +35,27 @@ min_throw_power = 200.0
 max_throw_power = 800.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_dpxsa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.21, 0.21)
-texture = ExtResource("1_0sibd")
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(0, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_unyqo")
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D"]
 texture = SubResource("GradientTexture2D_m33o7")
-texture_scale = 4.0
+texture_scale = 5.0
 
 [node name="PickupArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+visible = false
 shape = SubResource("CircleShape2D_c2e1q")
 debug_color = Color(0.196152, 0.504167, 0, 0.42)
 

@@ -11,12 +11,15 @@ var is_follow_active : bool = false
 @export var max_throw_power : float = 450
 
 @onready var throw_charge_timer = $ThrowChargeTimer
+@onready var sprite_2d = %Sprite2D
 
 var spawn_position : Vector2
+var start_rotation : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_position = position
+	start_rotation = sprite_2d.global_rotation
 	pass # Replace with function body.
 
 func respawn():
@@ -26,14 +29,16 @@ func respawn():
 	
 		
 func _physics_process(delta: float) -> void:
-
 	follow()
 	check_input()
 		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	rotate_sprite()
+
+func rotate_sprite():
+	sprite_2d.global_rotation = start_rotation
 
 
 func set_follow_active(is_active : bool, target : Node2D):

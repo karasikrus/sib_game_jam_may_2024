@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://i1r2o8sh1u4"]
 
 [ext_resource type="Script" path="res://scenes/light_fearing_spike/light_fearing_spike.gd" id="1_bosob"]
-[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="2_n7263"]
+[ext_resource type="Texture2D" uid="uid://ticqfyv4mnj0" path="res://scenes/light_fearing_spike/Spikes roots.png" id="2_qennc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qmm6f"]
-size = Vector2(69.5, 61)
+size = Vector2(50.75, 42.5)
 
 [sub_resource type="Gradient" id="Gradient_5mtur"]
 offsets = PackedFloat32Array(0, 0.722944)
@@ -23,14 +23,17 @@ radius = 109.005
 script = ExtResource("1_bosob")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1.90735e-06, -5.72205e-06)
-scale = Vector2(0.65625, 0.601563)
-texture = ExtResource("2_n7263")
+scale = Vector2(0.931, 0.855)
+texture = ExtResource("2_qennc")
+hframes = 3
+vframes = 2
 
 [node name="DeathArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
-position = Vector2(-1, 1)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_qmm6f")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
