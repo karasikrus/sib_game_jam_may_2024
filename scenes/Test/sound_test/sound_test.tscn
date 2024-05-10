@@ -1,8 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj2amtuxdm75q"]
+[gd_scene load_steps=7 format=3 uid="uid://dj2amtuxdm75q"]
 
 [ext_resource type="Script" path="res://scenes/Test/sound_test/sound_test.gd" id="1_o3q6j"]
+[ext_resource type="AudioStream" uid="uid://culltihgk5vmm" path="res://sounds/Landing/Landing_1.wav" id="2_g4siy"]
+[ext_resource type="AudioStream" uid="uid://daf1ppmhh2c2q" path="res://sounds/Landing/Landing_2.wav" id="3_5n0y1"]
+[ext_resource type="AudioStream" uid="uid://d1s6jbhaclt2t" path="res://sounds/Landing/Landing_3.wav" id="4_er648"]
+[ext_resource type="AudioStream" uid="uid://cvj7ifvhdn02w" path="res://sounds/Landing/Landing_4.wav" id="5_lksdf"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_75t78"]
+random_pitch = 1.1
+streams_count = 4
+stream_0/stream = ExtResource("2_g4siy")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_5n0y1")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_er648")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_lksdf")
+stream_3/weight = 1.0
 
 [node name="TestSound" type="Node"]
 script = ExtResource("1_o3q6j")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_75t78")
+bus = &"Reverb"
