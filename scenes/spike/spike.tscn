@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dy8rf7c7b6h00"]
 
-[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="1_dvlxq"]
 [ext_resource type="Script" path="res://scenes/spike/spike.gd" id="1_ilh7j"]
+[ext_resource type="Texture2D" uid="uid://dm8r6hanutwbp" path="res://scenes/spike/Spikes red.png" id="2_fv1cg"]
 
 [sub_resource type="Gradient" id="Gradient_mho1r"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -19,7 +19,11 @@ scale = Vector2(0.4, 0.4)
 script = ExtResource("1_ilh7j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dvlxq")
+scale = Vector2(1.38542, 1.38542)
+texture = ExtResource("2_fv1cg")
+hframes = 2
+vframes = 2
+frame = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false
