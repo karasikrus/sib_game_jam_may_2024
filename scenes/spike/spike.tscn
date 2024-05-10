@@ -10,6 +10,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_mho1r")
 fill = 1
 fill_from = Vector2(0.48318, 0.51682)
+fill_to = Vector2(0.846154, 0.15812)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2s8lq"]
 size = Vector2(106, 96.5)
@@ -29,7 +30,9 @@ frame = 1
 visible = false
 position = Vector2(-2, 0.499996)
 scale = Vector2(1.96875, 2.04687)
+color = Color(1, 0, 0.65625, 1)
 texture = SubResource("GradientTexture2D_klndt")
+texture_scale = 1.5
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

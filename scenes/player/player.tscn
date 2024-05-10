@@ -21,7 +21,8 @@ collision_mask = 3
 script = ExtResource("1_pulaj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -37)
+texture_filter = 1
+position = Vector2(1, -38)
 scale = Vector2(0.735, 0.735)
 texture = ExtResource("2_h57kc")
 hframes = 2

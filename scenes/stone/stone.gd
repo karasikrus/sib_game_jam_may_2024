@@ -16,19 +16,30 @@ var is_follow_active : bool = false
 var spawn_position : Vector2
 var start_rotation : float
 
+var is_respawning := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_position = position
+	spawn_position = global_position
 	start_rotation = sprite_2d.global_rotation
 	pass # Replace with function body.
 
 func respawn():
+	is_respawning = true
 	linear_velocity = Vector2(0, 0)
 	angular_velocity = 0
-	position = spawn_position
+	PhysicsServer2D.body_set_state(
+	get_rid(),
+	PhysicsServer2D.BODY_STATE_TRANSFORM,
+	Transform2D.IDENTITY.translated(spawn_position)
+	)
+	
+	(func(): is_respawning = false).call_deferred()
 	
 		
 func _physics_process(delta: float) -> void:
+	if is_respawning:
+		return
 	follow()
 	check_input()
 		
