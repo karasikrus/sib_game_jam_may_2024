@@ -593,7 +593,7 @@ terrain_set_0/terrain_0/name = "default 0"
 terrain_set_0/terrain_0/color = Color(0.748898, 0.784078, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_wunka")
 
-[node name="TileMapTest" type="Node2D"]
+[node name="TileMapTest2" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
