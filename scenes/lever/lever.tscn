@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://caoomnuls5ydb"]
 
-[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="1_fh612"]
 [ext_resource type="Script" path="res://scenes/lever/lever.gd" id="1_mfg0v"]
+[ext_resource type="Texture2D" uid="uid://88h3ltcifone" path="res://scenes/lever/roots1.png" id="2_rk7f1"]
 [ext_resource type="Texture2D" uid="uid://begvpkpjfw0vj" path="res://scenes/stone/stone_light_texture.tres" id="3_4pkoj"]
 
 [sub_resource type="Animation" id="Animation_rxobo"]
@@ -80,7 +80,8 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.393086, 0.393086, 0.393085, 1)
-texture = ExtResource("1_fh612")
+texture = ExtResource("2_rk7f1")
+hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -21)

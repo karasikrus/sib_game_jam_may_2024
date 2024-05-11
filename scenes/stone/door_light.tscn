@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://blceeqaucb638"]
 
-[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="1_lqim0"]
+[ext_resource type="Texture2D" uid="uid://c8ccbnvgsimn4" path="res://scenes/stone/flower.png" id="1_28puh"]
 [ext_resource type="Script" path="res://scenes/stone/door_light.gd" id="1_tci2r"]
 [ext_resource type="Texture2D" uid="uid://begvpkpjfw0vj" path="res://scenes/stone/stone_light_texture.tres" id="1_y8s5x"]
 
@@ -9,26 +9,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath("PointLight2D:energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_43lvw"]
@@ -40,10 +40,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -65,7 +65,8 @@ _data = {
 }
 
 [node name="DoorLight" type="Sprite2D"]
-texture = ExtResource("1_lqim0")
+texture = ExtResource("1_28puh")
+hframes = 3
 script = ExtResource("1_tci2r")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://f54b45042qxk"]
 
 [ext_resource type="Script" path="res://scenes/stone/door.gd" id="1_s1vsr"]
-[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="2_3pw1l"]
+[ext_resource type="Texture2D" uid="uid://k71yx453ooi8" path="res://scenes/stone/door_roots.png" id="2_up1dq"]
 [ext_resource type="Texture2D" uid="uid://begvpkpjfw0vj" path="res://scenes/stone/stone_light_texture.tres" id="3_s3ngr"]
 
 [sub_resource type="Animation" id="Animation_2sbbt"]
@@ -21,26 +21,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/path = NodePath("CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_bmtco"]
@@ -60,26 +60,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/path = NodePath("CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [0, 1, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wmmfd"]
@@ -100,9 +100,6 @@ libraries = {
 "": SubResource("AnimationLibrary_wmmfd")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3pw1l")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_7gqw8")
@@ -112,3 +109,8 @@ color = Color(1, 1, 0.462745, 1)
 energy = 0.0
 texture = ExtResource("3_s3ngr")
 texture_scale = 2.37
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_up1dq")
+hframes = 3
+frame = 1
