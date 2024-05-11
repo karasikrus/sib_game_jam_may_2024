@@ -639,7 +639,6 @@ position = Vector2(571, 260)
 gravity_scale = 1.2
 
 [node name="LightSetup" parent="." instance=ExtResource("3_4nxkn")]
-visible = false
 
 [node name="Mushroom" parent="." instance=ExtResource("8_76uj2")]
 position = Vector2(653, 296)

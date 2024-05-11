@@ -429,3 +429,7 @@ bus = &"Reverb"
 [node name="RespawnPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
 stream = ExtResource("23_825su")
 bus = &"sfx"
+
+[node name="RespawnPlayer2" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource("23_825su")
+bus = &"sfx"
