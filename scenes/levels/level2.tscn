@@ -824,7 +824,7 @@ layer_0/tile_data = PackedInt32Array(1507367, 65536, 2, 1441831, 524288, 1, 1376
 
 [node name="EndLevelTrigger" parent="." instance=ExtResource("7_rj10a")]
 position = Vector2(173, 712)
-next_scene = "res://scenes/levels/level1.tscn"
+next_scene = "res://scenes/levels/level_safe_3.tscn"
 
 [node name="Area2D" parent="EndLevelTrigger" index="0"]
 position = Vector2(-25, 1379)
