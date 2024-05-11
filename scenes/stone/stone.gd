@@ -102,6 +102,15 @@ func throw():
 	apply_central_impulse(Vector2(1 * sign(follow_target.face_direction),-1) * final_throw_power)
 	
 
+func launch(impulse:Vector2):
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0
+	is_follow_active = false
+	can_player_throw = false
+	(follow_target as Player).is_stone_in_hands = false
+	apply_central_impulse(impulse)
+
+
 func _on_pickup_area_body_entered(body : Node2D):
 	if body.is_in_group("player"):
 		is_player_near = true
