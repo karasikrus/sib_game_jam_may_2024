@@ -25,9 +25,15 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Butterfly": "res://timelines/FirstPerson/Butterfly.dch",
+"Grandpa": "res://timelines/ThirdPerson/Grandpa.dch",
+"Gravedigger": "res://timelines/FirstPerson/Gravedigger.dch",
 "character_test": "res://scenes/dialogues/characters/character_test.dch"
 }
 directories/dtl_directory={
+"SecondPerson/timeline_1": "res://timelines/SecondPerson/timeline_1.dtl",
+"ThirdPerson/timeline_1": "res://timelines/ThirdPerson/timeline_1.dtl",
+"timeline_1": "res://timelines/FirstPerson/timeline_1.dtl",
 "timeline_test": "res://scenes/dialogues/timelines/timeline_test.dtl"
 }
 layout/style_list=["res://scenes/dialogic/default.tres", "res://test_style.tres"]
