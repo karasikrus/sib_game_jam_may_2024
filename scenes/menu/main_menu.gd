@@ -12,7 +12,7 @@ func _ready():
 func on_play_pressed():
 	SceneTransition.close_screen()
 	await SceneTransition.transition_halfway
-	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level0.tscn")
 	SceneTransition.open_screen()
 
 
