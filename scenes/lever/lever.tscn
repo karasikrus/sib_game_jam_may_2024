@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://caoomnuls5ydb"]
+[gd_scene load_steps=9 format=3 uid="uid://caoomnuls5ydb"]
 
 [ext_resource type="Script" path="res://scenes/lever/lever.gd" id="1_mfg0v"]
 [ext_resource type="Texture2D" uid="uid://88h3ltcifone" path="res://scenes/lever/roots1.png" id="2_rk7f1"]
 [ext_resource type="Texture2D" uid="uid://begvpkpjfw0vj" path="res://scenes/stone/stone_light_texture.tres" id="3_4pkoj"]
+[ext_resource type="AudioStream" uid="uid://bh7k0spmd0trv" path="res://sounds/LeverInteract/LeverInteract_1.wav" id="4_phkha"]
 
 [sub_resource type="Animation" id="Animation_rxobo"]
 length = 0.001
@@ -57,6 +58,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeverInteract")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bm0pg"]
 _data = {
@@ -93,5 +108,10 @@ color = Color(1, 1, 0.462745, 1)
 energy = 0.0
 texture = ExtResource("3_4pkoj")
 texture_scale = 2.37
+
+[node name="LeverInteract" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_phkha")
+volume_db = -5.0
+bus = &"Reverb"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
