@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bwsob4g505hmh"]
+[gd_scene load_steps=32 format=3 uid="uid://bwsob4g505hmh"]
 
 [ext_resource type="PackedScene" uid="uid://ph57i0v3pa0b" path="res://scenes/stone/stone.tscn" id="1_hx57r"]
 [ext_resource type="Texture2D" uid="uid://dgqln40m6qks8" path="res://scenes/background/background1.PNG" id="1_ycrp0"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://b5icybnplwwlx" path="res://scenes/end_level_trigger/end_level_trigger.tscn" id="5_ptqrm"]
 [ext_resource type="PackedScene" uid="uid://i1r2o8sh1u4" path="res://scenes/light_fearing_spike/light_fearing_spike.tscn" id="7_m0c5x"]
 [ext_resource type="PackedScene" uid="uid://bi70y2ydkssn6" path="res://scenes/checkpoints/checkpoint.tscn" id="9_2topf"]
+[ext_resource type="PackedScene" uid="uid://f54b45042qxk" path="res://scenes/stone/door.tscn" id="10_s3tst"]
+[ext_resource type="PackedScene" uid="uid://blceeqaucb638" path="res://scenes/stone/door_light.tscn" id="11_0ghcq"]
+[ext_resource type="PackedScene" uid="uid://caoomnuls5ydb" path="res://scenes/lever/lever.tscn" id="12_wjq28"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_55suy"]
 polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
@@ -656,6 +659,28 @@ position = Vector2(123, 33)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("9_2topf")]
 position = Vector2(924, 193)
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" node_paths=PackedStringArray("lights") instance=ExtResource("10_s3tst")]
+position = Vector2(223, 677)
+lights = [NodePath("../DoorLight"), NodePath("../DoorLight2")]
+
+[node name="DoorLight" parent="Doors" instance=ExtResource("11_0ghcq")]
+position = Vector2(139, 610)
+id = 1
+
+[node name="DoorLight2" parent="Doors" instance=ExtResource("11_0ghcq")]
+position = Vector2(327, 613)
+id = 2
+
+[node name="Lever" parent="Doors" instance=ExtResource("12_wjq28")]
+position = Vector2(833, 620)
+id = 1
+
+[node name="Lever2" parent="Doors" instance=ExtResource("12_wjq28")]
+position = Vector2(829, 504)
+id = 2
 
 [editable path="EndLevelTrigger"]
 [editable path="Checkpoints/Checkpoint"]

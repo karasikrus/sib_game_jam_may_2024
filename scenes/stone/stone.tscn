@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/stone/stone.gd" id="1_auo2j"]
 [ext_resource type="Texture2D" uid="uid://bn1h6anjntutl" path="res://scenes/stone/stone1.png" id="2_wdnl5"]
 [ext_resource type="AudioStream" uid="uid://dmnebh6kbuxe7" path="res://sounds/StoneWallHit/WallHit_1.wav" id="3_1msn7"]
-[ext_resource type="Texture2D" uid="uid://cfv456wi846bu" path="res://scenes/stone/stone_light_texture.tres" id="3_7pnkb"]
+[ext_resource type="Texture2D" uid="uid://begvpkpjfw0vj" path="res://scenes/stone/stone_light_texture.tres" id="3_7pnkb"]
 [ext_resource type="AudioStream" uid="uid://dfx4nbc1rk4nx" path="res://sounds/StoneWallHit/WallHit_2.wav" id="4_dps65"]
 [ext_resource type="AudioStream" uid="uid://dnrbfspoykaq6" path="res://sounds/StoneWallHit/WallHit_3.wav" id="5_m2xuc"]
 [ext_resource type="AudioStream" uid="uid://ohvct0uskas8" path="res://sounds/StoneWallHit/WallHit_4.wav" id="6_krmq5"]

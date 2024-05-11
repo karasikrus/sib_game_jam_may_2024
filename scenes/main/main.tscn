@@ -43,19 +43,6 @@ texture = ExtResource("1_pe6fa")
 
 [node name="Player" parent="." instance=ExtResource("3_gquk4")]
 position = Vector2(274, 114)
-max_speed = 280.0
-acceleration = 1440.0
-turning_acceleration = 4800.0
-deceleration = 1600.0
-gravity_acceleration = 2500.0
-gravity_max = 1020.0
-jump_force = 600.0
-jump_cut = 0.25
-jump_gravity_max = 500.0
-jump_hang_treshold = 2.0
-jump_hang_gravity_mult = 0.1
-jump_coyote = 0.12
-jump_buffer = 0.1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2

@@ -1,6 +1,8 @@
 extends Sprite2D
 class_name DoorLight
 
+signal lit
+
 @export var id : int = 0
 @onready var animation_player = $AnimationPlayer
 
@@ -17,3 +19,5 @@ func activate(lever_id:int):
 	
 	is_activated = true
 	animation_player.play("light")
+	await animation_player.animation_finished
+	lit.emit()
