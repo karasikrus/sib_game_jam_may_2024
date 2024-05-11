@@ -48,6 +48,7 @@ var current_checkpoint_index = -1
 
 @onready var just_picked_up_timer = $JustPickedUpTimer
 
+var freeze_input = false
 
 var is_jumping_on_mushroom : bool = false
 var mushroom_jump_direction : Vector2 = Vector2(0, 0)
@@ -57,6 +58,7 @@ func _ready():
 
 # All inputs we want to keep track of
 func get_input() -> Dictionary:
+
 	return {
 		"x": int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")),
 		"y": int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up")),
@@ -81,6 +83,8 @@ func _physics_process(delta: float) -> void:
 
 
 func x_movement(delta: float) -> void:
+	if freeze_input:
+		return
 	if is_stone_in_hands:
 		x_dir = 0
 		set_direction(get_input()["x"])
@@ -121,6 +125,8 @@ func set_direction(hor_direction) -> void:
 
 
 func jump_logic(_delta: float) -> void:
+	if freeze_input:
+		return
 	# Reset our jump requirements
 	if is_on_floor():
 		jump_coyote_timer = jump_coyote
@@ -224,3 +230,9 @@ func set_check_point(index_in_checkpoint_list, player_pos, stone_pos):
 func just_pick_up():
 	is_stone_in_hands = true
 	just_picked_up_timer.start()
+
+func freeze_movement() -> void:
+	freeze_input = true
+	
+func unfreeze_movement() -> void:
+	freeze_input = false

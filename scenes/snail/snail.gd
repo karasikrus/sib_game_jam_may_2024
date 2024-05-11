@@ -42,8 +42,7 @@ func _ready():
 	position = first_point.position
 	line_2d.top_level = true
 	collision_shape.top_level = true
-	#collision_shape.shape.set_a((line_2d.to_local(first_point.position)))
-	#collision_shape.shape.set_b((line_2d.to_local(first_point.position)))
+
 	line_2d.clear_points()
 	
 	light_timer = Timer.new()
@@ -77,10 +76,7 @@ func _process(delta):
 	if is_point_light_enabled and light_timer.time_left > 0:
 		var normalized_time = light_timer.time_left / light_timer_appearance
 		point_light.energy = 1 - normalized_time
-	
-	
-	
-	pass
+
 
 func enable_light():
 	is_point_light_enabled = true
