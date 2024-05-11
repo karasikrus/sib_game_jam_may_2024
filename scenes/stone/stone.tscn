@@ -39,7 +39,7 @@ light_mode = 1
 
 [sub_resource type="Curve" id="Curve_cklqm"]
 max_value = 20.0
-_data = [Vector2(0.0265781, 0), 0.0, 0.0, 0, 0, Vector2(0.684588, 8.35165), 34.0659, 34.0659, 0, 0, Vector2(1, 15.3846), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.0265781, 0), 0.0, 0.0, 0, 0, Vector2(0.760797, 6.13049), 14.3485, 14.3485, 0, 0, Vector2(1, 8.7977), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c2e1q"]
@@ -127,6 +127,7 @@ debug_color = Color(0.343474, 0.532162, 0.848859, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 unique_name_in_owner = true
+z_index = 1
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_qvdpj")
 position = Vector2(0, -2)
