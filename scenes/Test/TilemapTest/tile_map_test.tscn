@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwsob4g505hmh"]
+[gd_scene load_steps=31 format=3 uid="uid://bwsob4g505hmh"]
 
 [ext_resource type="PackedScene" uid="uid://ph57i0v3pa0b" path="res://scenes/stone/stone.tscn" id="1_hx57r"]
 [ext_resource type="Texture2D" uid="uid://dgqln40m6qks8" path="res://scenes/background/background1.PNG" id="1_ycrp0"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://i1r2o8sh1u4" path="res://scenes/light_fearing_spike/light_fearing_spike.tscn" id="7_m0c5x"]
 [ext_resource type="PackedScene" uid="uid://d16hpuvi3jrvs" path="res://scenes/mushroom/mushroom.tscn" id="8_76uj2"]
 [ext_resource type="PackedScene" uid="uid://bi70y2ydkssn6" path="res://scenes/checkpoints/checkpoint.tscn" id="9_2topf"]
+[ext_resource type="PackedScene" uid="uid://6ms3fw7v3joa" path="res://scenes/snail/snail.tscn" id="11_6i1g5"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_55suy"]
 polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
@@ -597,6 +598,7 @@ sources/0 = SubResource("TileSetAtlasSource_wunka")
 [node name="TileMapTest" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -635,7 +637,7 @@ position = Vector2(110, 590)
 position = Vector2(117, 291)
 
 [node name="Stone" parent="." instance=ExtResource("1_hx57r")]
-position = Vector2(571, 260)
+position = Vector2(433, 267)
 gravity_scale = 1.2
 
 [node name="LightSetup" parent="." instance=ExtResource("3_4nxkn")]
@@ -660,6 +662,9 @@ position = Vector2(123, 33)
 
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("9_2topf")]
 position = Vector2(924, 193)
+
+[node name="SnailHolder" parent="." instance=ExtResource("11_6i1g5")]
+position = Vector2(709, 583)
 
 [editable path="EndLevelTrigger"]
 [editable path="Checkpoints/Checkpoint"]

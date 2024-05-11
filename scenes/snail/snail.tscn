@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://6ms3fw7v3joa"]
+
+[ext_resource type="Script" path="res://scenes/snail/snail.gd" id="2_fiftv"]
+[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="2_yxsu6"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_h5ww5"]
+
+[node name="SnailHolder" type="Node2D"]
+
+[node name="Points" type="Node2D" parent="."]
+
+[node name="FirstPoint" type="Node2D" parent="Points"]
+
+[node name="SecondPoint" type="Node2D" parent="Points"]
+position = Vector2(201, -2)
+
+[node name="Snail" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource("2_fiftv")
+movement_time = 2.0
+
+[node name="Area2D" type="Area2D" parent="Snail"]
+scale = Vector2(1.028, 1)
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Snail/Area2D"]
+shape = SubResource("SegmentShape2D_h5ww5")
+debug_color = Color(4.52429e-06, 0.598452, 0.700172, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Snail"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_yxsu6")
+
+[node name="Line2D" type="Line2D" parent="Snail"]
+points = PackedVector2Array(1, 1)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[connection signal="body_entered" from="Snail/Area2D" to="Snail" method="process_collision_with_objects"]
