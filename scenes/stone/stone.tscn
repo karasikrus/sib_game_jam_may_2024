@@ -33,9 +33,9 @@ height = 18.0
 light_mode = 1
 
 [sub_resource type="Curve" id="Curve_cklqm"]
-max_value = 5.0
-_data = [Vector2(0.0265781, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.21174), 0.0, 0.0, 0, 0]
-point_count = 2
+max_value = 10.0
+_data = [Vector2(0.0265781, 0), 0.0, 0.0, 0, 0, Vector2(0.657807, 2.85187), 0.0, 0.0, 0, 0, Vector2(1, 9.89331), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c2e1q"]
 radius = 23.0
@@ -120,7 +120,7 @@ texture_scale = 5.0
 [node name="Line2D" type="Line2D" parent="Node2D"]
 width = 2.0
 width_curve = SubResource("Curve_cklqm")
-default_color = Color(0.0941176, 0.596078, 0.607843, 0.541176)
+default_color = Color(0.0941176, 0.596078, 0.607843, 0.121569)
 
 [node name="PickupArea" type="Area2D" parent="."]
 visible = false
