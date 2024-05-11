@@ -7,8 +7,9 @@ var timer : Timer = null
 func _ready():
 	timer = Timer.new()
 	timer.one_shot = true
-	timer.start(life_time)
+	add_child(timer)
 	timer.connect("timeout", destroy_node)
+	timer.start(life_time)
 	pass # Replace with function body.
 
 	
