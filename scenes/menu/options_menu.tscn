@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dle0mhgj80fil"]
+[gd_scene load_steps=3 format=3 uid="uid://dle0mhgj80fil"]
 
 [ext_resource type="Script" path="res://scenes/menu/options_menu.gd" id="1_mofsh"]
+[ext_resource type="Texture2D" uid="uid://bknfriqtervxm" path="res://scenes/menu/menu-backg.PNG" id="2_tl1v5"]
 
 [node name="OptionsMenu" type="CanvasLayer"]
+layer = 128
 script = ExtResource("1_mofsh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -14,6 +16,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.67451, 0.67451, 0.67451, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+position = Vector2(963, 539)
+texture = ExtResource("2_tl1v5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
