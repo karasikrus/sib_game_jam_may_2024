@@ -3,6 +3,7 @@ extends Node2D
 
 @export var life_time = 2.0
 var timer : Timer = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timer = Timer.new()
@@ -17,6 +18,7 @@ func process_collision_with_objects(body : Node2D):
 	if body.is_in_group("player"):
 		(body as Player).respawn()
 		(get_tree().get_first_node_in_group("stone") as Stone).respawn()
+		(get_parent().find_child("Snail") as Snail).enable_light()
 	if body.is_in_group("stone"):
 		var current_velocity = (body as RigidBody2D).linear_velocity
 		var direction = -current_velocity

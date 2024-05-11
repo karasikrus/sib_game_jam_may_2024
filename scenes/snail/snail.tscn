@@ -1,9 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://6ms3fw7v3joa"]
+[gd_scene load_steps=6 format=3 uid="uid://6ms3fw7v3joa"]
 
 [ext_resource type="Script" path="res://scenes/snail/snail.gd" id="2_fiftv"]
 [ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="2_yxsu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jl23l"]
+
+[sub_resource type="Gradient" id="Gradient_8smv6"]
+colors = PackedColorArray(0.930736, 0.930736, 0.930736, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vp6cs"]
+gradient = SubResource("Gradient_8smv6")
+fill = 1
+fill_from = Vector2(0.513761, 0.51682)
 
 [node name="SnailHolder" type="Node2D"]
 
@@ -35,5 +43,8 @@ texture = ExtResource("2_yxsu6")
 [node name="Line2D" type="Line2D" parent="Snail"]
 points = PackedVector2Array(1, 1)
 width = 2.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Snail"]
+texture = SubResource("GradientTexture2D_vp6cs")
 
 [connection signal="body_entered" from="Snail/Area2D" to="Snail" method="process_collision_with_objects"]
