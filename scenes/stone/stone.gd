@@ -26,8 +26,11 @@ var is_follow_active : bool = false
 var spawn_position : Vector2
 var start_rotation : float
 
+@export var respawn_time = 1.0
+var respawning_timer : Timer = null
+ 
 var is_respawning := false
-
+var death_pos = Vector2(0, 0)
 @export var max_points_in_line = 150
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,19 +38,25 @@ func _ready():
 	start_rotation = sprite_2d.global_rotation
 	line_2d.clear_points()
 	line_2d.top_level = true
+	
+	respawning_timer = Timer.new()
+	respawning_timer.one_shot = true
+	add_child(respawning_timer)
+	respawning_timer.connect("timeout", (func(): is_respawning = false))
 	pass # Replace with function body.
+
 
 func respawn():
 	is_respawning = true
+	respawning_timer.start(respawn_time)
 	linear_velocity = Vector2(0, 0)
 	angular_velocity = 0
-	PhysicsServer2D.body_set_state(
-	get_rid(),
-	PhysicsServer2D.BODY_STATE_TRANSFORM,
-	Transform2D.IDENTITY.translated(spawn_position)
-	)
-	
-	(func(): is_respawning = false).call_deferred()
+	death_pos = position
+	#PhysicsServer2D.body_set_state(
+	#get_rid(),
+	#PhysicsServer2D.BODY_STATE_TRANSFORM,
+	#Transform2D.IDENTITY.translated(spawn_position)
+	#)
 	
 		
 func _physics_process(delta: float) -> void:
@@ -63,6 +72,16 @@ func _process(delta):
 	if line_2d.get_point_count() > max_points_in_line:
 		line_2d.remove_point(0)
 	rotate_sprite()
+	if is_respawning:
+		var normalized_time = 1 - respawning_timer.time_left
+		var pos = lerp(death_pos, spawn_position, normalized_time)
+		linear_velocity = Vector2(0, 0)
+		angular_velocity = 0
+		PhysicsServer2D.body_set_state(
+		get_rid(),
+		PhysicsServer2D.BODY_STATE_TRANSFORM,
+		Transform2D.IDENTITY.translated(pos)
+		)
 	
 	
 

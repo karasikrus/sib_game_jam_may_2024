@@ -9,6 +9,7 @@ size = Vector2(133, 70)
 script = ExtResource("1_vvtis")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(56.5, 25)
