@@ -39,7 +39,6 @@ rotation = -1.57079
 shape = SubResource("CapsuleShape2D_184hy")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
 texture = SubResource("GradientTexture2D_ieqev")
 
 [node name="LightStoneArea" type="Area2D" parent="."]
