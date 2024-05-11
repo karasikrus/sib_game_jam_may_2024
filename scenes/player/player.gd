@@ -37,6 +37,8 @@ var spawn_position : Vector2
 var is_stone_in_hands := false
 var was_on_floor := true
 
+var current_checkpoint_index = -1
+
 @onready var stone_locator: Node2D = %StoneLocator
 @onready var animation_player = $AnimationPlayer
 @onready var step = $AudioPlayers/Step
@@ -198,3 +200,9 @@ func animate() -> void:
 		else:
 			animation_player.play("fall")
 
+
+func set_check_point(index_in_checkpoint_list, player_pos, stone_pos):
+	if index_in_checkpoint_list > current_checkpoint_index:
+		current_checkpoint_index = index_in_checkpoint_list
+		spawn_position = player_pos
+		(get_tree().get_first_node_in_group("stone") as Stone).spawn_position = stone_pos
