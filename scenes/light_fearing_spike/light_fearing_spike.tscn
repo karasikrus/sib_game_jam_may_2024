@@ -18,7 +18,7 @@ fill_from = Vector2(0.492355, 0.513761)
 repeat = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0bgpv"]
-radius = 128.035
+radius = 148.0
 
 [node name="LightFearingSpike" type="Node2D"]
 script = ExtResource("1_bosob")
@@ -40,6 +40,12 @@ shape = SubResource("CapsuleShape2D_184hy")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("GradientTexture2D_ieqev")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+color = Color(1, 0, 0.328125, 1)
+energy = 0.3
+texture = SubResource("GradientTexture2D_ieqev")
+texture_scale = 2.0
 
 [node name="LightStoneArea" type="Area2D" parent="."]
 collision_layer = 0
