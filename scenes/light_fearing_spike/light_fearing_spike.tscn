@@ -59,9 +59,13 @@ debug_color = Color(0.658824, 0, 0.160784, 0.309804)
 
 [node name="SpikesAppear" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_88o7f")
+volume_db = -5.0
+bus = &"Reverb"
 
 [node name="SpikesDisappear" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_eqqpp")
+volume_db = -5.0
+bus = &"Reverb"
 
 [connection signal="body_entered" from="DeathArea" to="." method="process_collision_with_player"]
 [connection signal="body_entered" from="LightStoneArea" to="." method="stone_entering_processing"]
