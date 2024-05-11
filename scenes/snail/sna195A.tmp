@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://scenes/snail/snail.gd" id="2_fiftv"]
 [ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="2_yxsu6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl23l"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eq7p"]
+size = Vector2(19.7276, 7)
 
 [node name="SnailHolder" type="Node2D"]
 
@@ -20,12 +21,14 @@ script = ExtResource("2_fiftv")
 movement_time = 2.0
 
 [node name="Area2D" type="Area2D" parent="Snail"]
-collision_mask = 7
+scale = Vector2(1.028, 1)
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Snail/Area2D"]
 position = Vector2(-0.136187, 6.5)
-shape = SubResource("RectangleShape2D_jl23l")
-one_way_collision_margin = 0.0
+shape = SubResource("RectangleShape2D_1eq7p")
+one_way_collision_margin = 7.2
 debug_color = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Snail"]
@@ -35,5 +38,6 @@ texture = ExtResource("2_yxsu6")
 [node name="Line2D" type="Line2D" parent="Snail"]
 points = PackedVector2Array(1, 1)
 width = 2.0
+default_color = Color(0, 0, 0, 1)
 
 [connection signal="body_entered" from="Snail/Area2D" to="Snail" method="process_collision_with_objects"]
