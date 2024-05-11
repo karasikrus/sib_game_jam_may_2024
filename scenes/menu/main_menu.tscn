@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dabt2pphe3m0b"]
+[gd_scene load_steps=9 format=3 uid="uid://dabt2pphe3m0b"]
 
 [ext_resource type="Script" path="res://scenes/menu/main_menu.gd" id="1_rq7tt"]
+[ext_resource type="Texture2D" uid="uid://bknfriqtervxm" path="res://scenes/menu/menu-backg.PNG" id="2_6uas4"]
+[ext_resource type="Texture2D" uid="uid://775labi66rhi" path="res://scenes/menu/button1.png" id="3_q1017"]
+[ext_resource type="Texture2D" uid="uid://byfjed5eedrwh" path="res://scenes/menu/button2.png" id="4_f1xnv"]
+[ext_resource type="Script" path="res://scenes/menu/PlayButtonSprite.gd" id="4_ydume"]
+[ext_resource type="Texture2D" uid="uid://daa0ec0d0nunn" path="res://scenes/menu/button3.png" id="5_ix0ff"]
+[ext_resource type="Script" path="res://scenes/menu/OptionButtonSprite.gd" id="6_egggx"]
+[ext_resource type="Script" path="res://scenes/menu/ExitButtonSprite.gd" id="8_tt0gy"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_rq7tt")
@@ -20,49 +27,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuBox" type="PanelContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(955, 541)
+texture = ExtResource("2_6uas4")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MenuBox"]
-layout_mode = 2
+[node name="PlayButtonSprite" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(998, 281)
+scale = Vector2(0.79798, 0.949799)
+texture = ExtResource("3_q1017")
+hframes = 2
+script = ExtResource("4_ydume")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MenuBox/MarginContainer"]
-modulate = Color(1, 1, 0.317647, 1)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 40
-
-[node name="Label" type="Label" parent="MarginContainer/MenuBox/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 40
-text = "Light thrower"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MenuBox/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="PlayButton" type="Button" parent="MarginContainer/MenuBox/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="MarginContainer/PlayButtonSprite"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
+offset_left = -325.823
+offset_top = -74.7526
+offset_right = 284.177
+offset_bottom = 87.2474
+focus_mode = 0
+theme_override_font_sizes/font_size = 60
 text = "Play"
+flat = true
+metadata/_edit_use_anchors_ = true
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/MenuBox/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="OptionButtonSprite" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(990, 543)
+texture = ExtResource("4_f1xnv")
+hframes = 2
+script = ExtResource("6_egggx")
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/OptionButtonSprite"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
+offset_left = -223.0
+offset_top = -159.0
+offset_right = 177.0
+offset_bottom = 141.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 60
 text = "Options"
+flat = true
+metadata/_edit_use_anchors_ = true
 
-[node name="QuitButton" type="Button" parent="MarginContainer/MenuBox/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ExitButtonSprite" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(948, 782)
+texture = ExtResource("5_ix0ff")
+hframes = 2
+script = ExtResource("8_tt0gy")
+
+[node name="QuitButton" type="Button" parent="MarginContainer/ExitButtonSprite"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 30)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
+offset_left = -163.0
+offset_top = -81.0
+offset_right = 175.0
+offset_bottom = 80.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 60
 text = "Quit"
+flat = true
+metadata/_edit_use_anchors_ = true
