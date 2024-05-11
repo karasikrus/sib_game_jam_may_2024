@@ -5,8 +5,8 @@ var player : Player = null
 @onready var animation_player = $AnimationPlayer
 
 @export var velocity_scale = 500
-@export var stone_throw_power = 2
-@export var player_throw_power = 2
+@export var stone_throw_power = 2.2
+@export var player_throw_power = 2.2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

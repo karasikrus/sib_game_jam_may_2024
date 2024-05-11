@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dgqln40m6qks8" path="res://scenes/background/background1.PNG" id="1_ycrp0"]
 [ext_resource type="PackedScene" uid="uid://bimfltqaiqd3v" path="res://scenes/player/player.tscn" id="2_tkja7"]
 [ext_resource type="PackedScene" uid="uid://b28o3lmbjqw6p" path="res://scenes/light_setup/light_setup.tscn" id="3_4nxkn"]
-[ext_resource type="Texture2D" uid="uid://dscdolxi7h6ea" path="res://scenes/Test/TilemapTest/tileset2.png" id="3_lpvbg"]
+[ext_resource type="Texture2D" uid="uid://cy4tehyf5ivr5" path="res://scenes/Test/TilemapTest/tileset3.png" id="3_mc6qb"]
 [ext_resource type="PackedScene" uid="uid://dy8rf7c7b6h00" path="res://scenes/spike/spike.tscn" id="5_4yugw"]
 [ext_resource type="PackedScene" uid="uid://b5icybnplwwlx" path="res://scenes/end_level_trigger/end_level_trigger.tscn" id="5_ptqrm"]
 [ext_resource type="PackedScene" uid="uid://i1r2o8sh1u4" path="res://scenes/light_fearing_spike/light_fearing_spike.tscn" id="7_m0c5x"]
@@ -64,7 +64,7 @@ polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wunka"]
-texture = ExtResource("3_lpvbg")
+texture = ExtResource("3_mc6qb")
 margins = Vector2i(0, 48)
 texture_region_size = Vector2i(48, 48)
 1:1/0 = 0

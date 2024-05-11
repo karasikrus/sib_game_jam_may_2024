@@ -121,16 +121,20 @@ _data = {
 "open_screen": SubResource("Animation_u6ytc")
 }
 
-[sub_resource type="Gradient" id="Gradient_q75ok"]
+[sub_resource type="Gradient" id="Gradient_ivybi"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_exdkq"]
-gradient = SubResource("Gradient_q75ok")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mgiha"]
+gradient = SubResource("Gradient_ivybi")
+fill = 1
+fill_from = Vector2(0.521368, 0.470085)
+fill_to = Vector2(0.884615, 0.115385)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_avi8e"]
 shader = ExtResource("2_qn1yy")
-shader_parameter/transition_color = Color(0.372549, 0, 0.25098, 1)
+shader_parameter/transition_color = Color(0, 0, 0, 1)
 shader_parameter/percent = 0.0
-shader_parameter/transition_texture = SubResource("GradientTexture1D_exdkq")
+shader_parameter/transition_texture = SubResource("GradientTexture2D_mgiha")
 
 [node name="SceneTransition" type="CanvasLayer"]
 process_mode = 3
