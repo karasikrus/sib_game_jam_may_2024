@@ -37,13 +37,13 @@ radius = 11.0
 radius = 3.0
 height = 18.0
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qvdpj"]
-light_mode = 1
-
 [sub_resource type="Curve" id="Curve_cklqm"]
 max_value = 20.0
 _data = [Vector2(0.0265781, 0), 0.0, 0.0, 0, 0, Vector2(0.684588, 8.35165), 34.0659, 34.0659, 0, 0, Vector2(1, 15.3846), 0.0, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qvdpj"]
+light_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c2e1q"]
 radius = 23.0
@@ -138,8 +138,15 @@ debug_color = Color(0.343474, 0.532162, 0.848859, 0.42)
 
 [node name="Node2D" type="Node2D" parent="."]
 
+[node name="Line2D" type="Line2D" parent="Node2D"]
+width = 2.0
+width_curve = SubResource("Curve_cklqm")
+default_color = Color(0.490929, 0.519531, 0.353119, 0.121569)
+joint_mode = 2
+
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 unique_name_in_owner = true
+z_index = 1
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_qvdpj")
 position = Vector2(0, -2)
@@ -149,11 +156,6 @@ texture = ExtResource("2_wdnl5")
 [node name="PointLight2D" type="PointLight2D" parent="Node2D"]
 texture = ExtResource("3_7pnkb")
 texture_scale = 5.0
-
-[node name="Line2D" type="Line2D" parent="Node2D"]
-width = 2.0
-width_curve = SubResource("Curve_cklqm")
-default_color = Color(0.490929, 0.519531, 0.353119, 0.121569)
 
 [node name="PickupArea" type="Area2D" parent="."]
 visible = false
