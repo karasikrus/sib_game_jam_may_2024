@@ -30,7 +30,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "timeline_test": "res://scenes/dialogues/timelines/timeline_test.dtl"
 }
-layout/style_list=["res://scenes/dialogic/default.tres"]
+layout/style_list=["res://scenes/dialogic/default.tres", "res://test_style.tres"]
 layout/default_style="res://scenes/dialogic/default.tres"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
