@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ph57i0v3pa0b"]
+[gd_scene load_steps=32 format=3 uid="uid://ph57i0v3pa0b"]
 
 [ext_resource type="Script" path="res://scenes/stone/stone.gd" id="1_auo2j"]
 [ext_resource type="Texture2D" uid="uid://bn1h6anjntutl" path="res://scenes/stone/stone1.png" id="2_wdnl5"]
@@ -17,6 +17,11 @@
 [ext_resource type="AudioStream" uid="uid://exrrvuitjsuy" path="res://sounds/StoneLanding/StoneLanding_3.wav" id="14_srj1v"]
 [ext_resource type="AudioStream" uid="uid://bomgwh4qaf0ir" path="res://sounds/StoneLanding/StoneLanding_4.wav" id="15_hxeiv"]
 [ext_resource type="AudioStream" uid="uid://u10ei1vl2tim" path="res://sounds/StoneLanding/StoneLanding_5.wav" id="16_h4dhx"]
+[ext_resource type="AudioStream" uid="uid://b5of7piekdjja" path="res://sounds/ThrowPrepare/ThrowPrepare_1.wav" id="18_c40ym"]
+[ext_resource type="AudioStream" uid="uid://dqbbabdanbomv" path="res://sounds/ThrowPrepare/ThrowPrepare_2.wav" id="19_p7x5v"]
+[ext_resource type="AudioStream" uid="uid://by6w6i6masmub" path="res://sounds/ThrowPrepare/ThrowPrepare_3.wav" id="20_s5jkj"]
+[ext_resource type="AudioStream" uid="uid://bqmgjp4qy4wwe" path="res://sounds/ThrowPrepare/ThrowPrepare_4.wav" id="21_d2s8v"]
+[ext_resource type="AudioStream" uid="uid://blpovqy1m0kcl" path="res://sounds/ThrowPrepare/ThrowPrepare_5.wav" id="22_xxv0w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2ld5j"]
 friction = 0.8
@@ -76,11 +81,25 @@ stream_3/weight = 1.0
 stream_4/stream = ExtResource("16_h4dhx")
 stream_4/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0uoxp"]
+random_pitch = 1.2
+streams_count = 5
+stream_0/stream = ExtResource("18_c40ym")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("19_p7x5v")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("20_s5jkj")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("21_d2s8v")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("22_xxv0w")
+stream_4/weight = 1.0
+
 [node name="Stone" type="RigidBody2D" groups=["stone"]]
 collision_layer = 4
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_2ld5j")
-gravity_scale = 2.0
+gravity_scale = 3.0
 can_sleep = false
 continuous_cd = 2
 max_contacts_reported = 1
@@ -88,6 +107,7 @@ contact_monitor = true
 linear_damp = 1.2
 angular_damp = 20.0
 script = ExtResource("1_auo2j")
+max_time_throw_charge = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -152,6 +172,11 @@ one_shot = true
 [node name="HitTimerLanding" type="Timer" parent="AudioPlayers"]
 wait_time = 0.15
 one_shot = true
+
+[node name="ThrowPreparePlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = SubResource("AudioStreamRandomizer_0uoxp")
+volume_db = -15.0
+bus = &"Reverb"
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_entered" from="PickupArea" to="." method="_on_pickup_area_body_entered"]

@@ -18,6 +18,7 @@ var is_follow_active : bool = false
 @onready var hit_timer_wall = $AudioPlayers/HitTimerWall
 @onready var hit_timer_landing = $AudioPlayers/HitTimerLanding
 @onready var bottom_area_2d = $BottomArea2d
+@onready var throw_prepare_player = $AudioPlayers/ThrowPreparePlayer
 
 @onready var line_2d = $Node2D/Line2D
 
@@ -82,9 +83,11 @@ func check_input():
 				(follow_target as Player).just_pick_up()
 		else:
 			throw()
+			throw_prepare_player.stop()
 	
 	if Input.is_action_just_pressed("take_stone") and can_player_throw:
 		throw_charge_timer.start(max_time_throw_charge)
+		throw_prepare_player.play()
 			
 	
 

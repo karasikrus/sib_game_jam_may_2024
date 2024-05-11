@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bimfltqaiqd3v"]
+[gd_scene load_steps=44 format=3 uid="uid://bimfltqaiqd3v"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pulaj"]
 [ext_resource type="Texture2D" uid="uid://cjusdb72r5cdj" path="res://scenes/player/Man_Idle.png" id="2_h57kc"]
@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://d1s6jbhaclt2t" path="res://sounds/Landing/Landing_3.wav" id="21_imeak"]
 [ext_resource type="AudioStream" uid="uid://cvj7ifvhdn02w" path="res://sounds/Landing/Landing_4.wav" id="22_qsx0x"]
 [ext_resource type="AudioStream" uid="uid://cr10o35p6l61t" path="res://sounds/Respawn/Respawn_1.wav" id="23_825su"]
+[ext_resource type="AudioStream" uid="uid://cckt0idxhtr0o" path="res://sounds/PickUp/PickUp.wav" id="28_ijmpf"]
 
 [sub_resource type="Animation" id="Animation_r2k7q"]
 length = 0.001
@@ -449,6 +450,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(23, -12), Vector2(21, -16), Vector2(18, -36), Vector2(0, -49)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioPlayers/PickUp")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yllnr"]
 _data = {
@@ -577,6 +592,11 @@ bus = &"Reverb"
 [node name="RespawnPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
 stream = ExtResource("23_825su")
 bus = &"sfx"
+
+[node name="PickUp" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource("28_ijmpf")
+volume_db = -3.0
+bus = &"Reverb"
 
 [node name="JustPickedUpTimer" type="Timer" parent="."]
 wait_time = 0.4
