@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bp81lgom8pksp"]
+
+[ext_resource type="Texture2D" uid="uid://boyj471i3vsrv" path="res://scenes/end/end1.png" id="1_e2g84"]
+[ext_resource type="Texture2D" uid="uid://cuodpunym8xok" path="res://scenes/end/end2.png" id="2_mchfu"]
+[ext_resource type="Texture2D" uid="uid://vw6khs2gul0r" path="res://scenes/end/end3.png" id="3_2pgdb"]
+[ext_resource type="Texture2D" uid="uid://bpj3owl3xqogo" path="res://scenes/end/end4.png" id="4_g8mt7"]
+[ext_resource type="Texture2D" uid="uid://cxgll087y4mdi" path="res://scenes/end/End5.png" id="5_n1647"]
+[ext_resource type="AudioStream" uid="uid://c58tl7bn3mq8m" path="res://scenes/end/smpl2.mp3" id="6_dnfbi"]
+
+[sub_resource type="Gradient" id="Gradient_uiygx"]
+offsets = PackedFloat32Array(0.897119)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wq6o1"]
+gradient = SubResource("Gradient_uiygx")
+
+[sub_resource type="Animation" id="Animation_1jv6p"]
+resource_name = "new_animation"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6.1, 8.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_e2g84"), ExtResource("2_mchfu"), ExtResource("3_2pgdb"), ExtResource("4_g8mt7"), ExtResource("5_n1647")]
+}
+
+[sub_resource type="Animation" id="Animation_6g5a6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_e2g84")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8xky0"]
+_data = {
+"RESET": SubResource("Animation_6g5a6"),
+"new_animation": SubResource("Animation_1jv6p")
+}
+
+[node name="END" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e2g84")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_wq6o1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8xky0")
+}
+autoplay = "new_animation"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dnfbi")
+autoplay = true
