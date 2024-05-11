@@ -24,16 +24,12 @@ func play_dialog():
 func check_input():
 	if Input.is_action_just_released("start_dialog"):
 		if is_player_near:
-			play_dialog()
 			var player = (get_tree().get_first_node_in_group("player") as Player)
 			player.freeze_movement()
-			Dialogic.connect("end_timeline", player.unfreeze_movement)
+			Dialogic.timeline_ended.connect(player.unfreeze_movement)
+			#Dialogic.connect("end_timeline")
+			play_dialog()
 
-func freeze_movement():
-	(get_tree().get_first_node_in_group("player") as Player).freeze_movement()
-	
-func unfreeze_movemenet():
-	(get_tree().get_first_node_in_group("player") as Player).unfreeze_movement()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	check_input()

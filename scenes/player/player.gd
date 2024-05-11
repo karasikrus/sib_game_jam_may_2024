@@ -58,6 +58,8 @@ var is_fully_charged := false
 var is_jumping_on_mushroom : bool = false
 var mushroom_jump_direction : Vector2 = Vector2(0, 0)
 
+var freeze_input : bool = false
+
 func _ready():
 	spawn_position = position
 
@@ -87,6 +89,9 @@ func _physics_process(delta: float) -> void:
 
 
 func x_movement(delta: float) -> void:
+	if freeze_input:
+		return
+		
 	if is_stone_in_hands:
 		x_dir = 0
 		set_direction(get_input()["x"])
@@ -127,6 +132,8 @@ func set_direction(hor_direction) -> void:
 
 
 func jump_logic(_delta: float) -> void:
+	if freeze_input:
+		return 
 	# Reset our jump requirements
 	if is_on_floor():
 		jump_coyote_timer = jump_coyote
@@ -242,3 +249,11 @@ func just_pick_up():
 func just_threw():
 	is_throwing = true
 	just_throw_timer.start()
+	
+func freeze_movement():
+	freeze_input = true
+	pass
+	
+func unfreeze_movement():
+	freeze_input = false
+	pass
