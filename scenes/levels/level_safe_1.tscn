@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://35vu00uw87ak"]
+[gd_scene load_steps=28 format=3 uid="uid://35vu00uw87ak"]
 
 [ext_resource type="Texture2D" uid="uid://dgqln40m6qks8" path="res://scenes/background/background1.PNG" id="1_ogc1i"]
 [ext_resource type="PackedScene" uid="uid://bimfltqaiqd3v" path="res://scenes/player/player.tscn" id="2_cg8vq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b28o3lmbjqw6p" path="res://scenes/light_setup/light_setup.tscn" id="7_1h5qd"]
 [ext_resource type="PackedScene" uid="uid://uxshoixjayoa" path="res://scenes/npc/gravedigger/gravedigger.tscn" id="7_afc1r"]
 [ext_resource type="PackedScene" uid="uid://b5icybnplwwlx" path="res://scenes/end_level_trigger/end_level_trigger.tscn" id="8_y2tns"]
+[ext_resource type="AudioStream" uid="uid://bkycu33r7vnl1" path="res://sounds/Ambient/smpl2.mp3" id="8_ywaxl"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_55suy"]
 polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
@@ -680,5 +681,10 @@ position = Vector2(-1, 11)
 
 [node name="Gravedigger" parent="." instance=ExtResource("7_afc1r")]
 position = Vector2(600, 566)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ywaxl")
+autoplay = true
+stream_paused = true
 
 [editable path="EndLevelTrigger"]

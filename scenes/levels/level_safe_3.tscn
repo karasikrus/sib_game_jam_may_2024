@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dp2op5e31xvm6"]
+[gd_scene load_steps=28 format=3 uid="uid://dp2op5e31xvm6"]
 
 [ext_resource type="Texture2D" uid="uid://dgqln40m6qks8" path="res://scenes/background/background1.PNG" id="1_xex3m"]
 [ext_resource type="PackedScene" uid="uid://dhdynjqu7deut" path="res://scenes/npc/grandpa/Grandpa.tscn" id="2_8gyoi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cy4tehyf5ivr5" path="res://scenes/Test/TilemapTest/tileset3.png" id="4_gg1uc"]
 [ext_resource type="PackedScene" uid="uid://b28o3lmbjqw6p" path="res://scenes/light_setup/light_setup.tscn" id="5_d5kcg"]
 [ext_resource type="PackedScene" uid="uid://b5icybnplwwlx" path="res://scenes/end_level_trigger/end_level_trigger.tscn" id="6_1eur0"]
+[ext_resource type="AudioStream" uid="uid://bkycu33r7vnl1" path="res://sounds/Ambient/smpl2.mp3" id="8_kbu0i"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_55suy"]
 polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
@@ -680,5 +681,9 @@ scale = Vector2(1.77831, 1.25181)
 
 [node name="CollisionShape2D" parent="EndLevelTrigger/Area2D" index="0"]
 position = Vector2(-1, 11)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_kbu0i")
+autoplay = true
 
 [editable path="EndLevelTrigger"]
