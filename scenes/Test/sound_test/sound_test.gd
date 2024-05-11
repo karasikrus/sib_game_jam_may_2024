@@ -1,6 +1,6 @@
 extends Node
 
-@onready var audio_stream_player = $LevelFinish
+@onready var audio_stream_player = $MushroomJump
 
 
 # Called when the node enters the scene tree for the first time.

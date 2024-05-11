@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dj2amtuxdm75q"]
+[gd_scene load_steps=71 format=3 uid="uid://dj2amtuxdm75q"]
 
 [ext_resource type="Script" path="res://scenes/Test/sound_test/sound_test.gd" id="1_o3q6j"]
 [ext_resource type="AudioStream" uid="uid://culltihgk5vmm" path="res://sounds/Landing/Landing_1.wav" id="2_g4siy"]
@@ -49,6 +49,17 @@
 [ext_resource type="AudioStream" uid="uid://7ti5bi5h71t2" path="res://sounds/ThrowRelease/ThrowRelease_4.wav" id="47_gsplq"]
 [ext_resource type="AudioStream" uid="uid://cr10o35p6l61t" path="res://sounds/Respawn/Respawn_1.wav" id="48_pxmoq"]
 [ext_resource type="AudioStream" uid="uid://clsoatdp1hrxo" path="res://sounds/LevelFinish/LvlFinish_1.wav" id="49_7fcnb"]
+[ext_resource type="AudioStream" uid="uid://cxwavbkmmoow6" path="res://sounds/ThrowPrepareFinished/ThrowPrepareFinished_1.wav" id="50_y5g6q"]
+[ext_resource type="AudioStream" uid="uid://c3aklun3l6l28" path="res://sounds/ThrowPrepareFinished/ThrowPrepareFinished_2.wav" id="51_fmggc"]
+[ext_resource type="AudioStream" uid="uid://dxcdnymqex5k6" path="res://sounds/SpikesAppear/SpikesAppear_1.wav" id="52_1hxxi"]
+[ext_resource type="AudioStream" uid="uid://bqn4e3ecttgbo" path="res://sounds/ThrowPrepareFinished/ThrowPrepareFinished_3.wav" id="52_ot80a"]
+[ext_resource type="AudioStream" uid="uid://bry8afy1tsuob" path="res://sounds/SpikesDisappear/SpikesDisappear_1.wav" id="53_sts8b"]
+[ext_resource type="AudioStream" uid="uid://cay5isj1ilods" path="res://sounds/LeverInteract/LeverInteract_2.wav" id="54_ohyoh"]
+[ext_resource type="AudioStream" uid="uid://bh7k0spmd0trv" path="res://sounds/LeverInteract/LeverInteract_1.wav" id="55_6hwpr"]
+[ext_resource type="AudioStream" uid="uid://cvapwdni3fy3k" path="res://sounds/DoorOpen/DoorOpen_1.wav" id="56_d83kr"]
+[ext_resource type="AudioStream" uid="uid://c2rbe6p7rw4ny" path="res://sounds/MushroomJump/MushroomJump_1.wav" id="58_dewjx"]
+[ext_resource type="AudioStream" uid="uid://dfmlqmbu10d1a" path="res://sounds/MushroomJump/MushroomJump_2.wav" id="59_61dp4"]
+[ext_resource type="AudioStream" uid="uid://d0oaie8qh0m4s" path="res://sounds/MushroomJump/MushroomJump_3.wav" id="60_j3a37"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lcjlr"]
 random_pitch = 1.3
@@ -172,6 +183,24 @@ stream_2/weight = 1.0
 stream_3/stream = ExtResource("47_gsplq")
 stream_3/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_enf0g"]
+random_pitch = 1.2
+streams_count = 2
+stream_0/stream = ExtResource("50_y5g6q")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("51_fmggc")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uer25"]
+random_pitch = 1.2
+streams_count = 3
+stream_0/stream = ExtResource("58_dewjx")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("59_61dp4")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("60_j3a37")
+stream_2/weight = 1.0
+
 [node name="TestSound" type="Node"]
 script = ExtResource("1_o3q6j")
 
@@ -226,3 +255,41 @@ bus = &"sfx"
 [node name="LevelFinish" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("49_7fcnb")
 bus = &"sfx"
+
+[node name="ThrowPrepareFinished" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_enf0g")
+volume_db = -15.0
+bus = &"Reverb"
+
+[node name="SpikesAppear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("52_1hxxi")
+volume_db = -5.0
+bus = &"Reverb"
+
+[node name="SpikesDisappear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("53_sts8b")
+volume_db = -5.0
+bus = &"Reverb"
+
+[node name="LeverInteract" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("54_ohyoh")
+volume_db = -5.0
+bus = &"Reverb"
+
+[node name="LeverInteract_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("55_6hwpr")
+volume_db = -5.0
+
+[node name="DoorOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("56_d83kr")
+volume_db = -5.0
+
+[node name="ThrowPrepareFinished_2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("52_ot80a")
+volume_db = -5.0
+bus = &"Reverb"
+
+[node name="MushroomJump" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_uer25")
+volume_db = -5.0
+bus = &"Reverb"
