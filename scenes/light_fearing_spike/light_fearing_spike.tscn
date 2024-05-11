@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://i1r2o8sh1u4"]
+[gd_scene load_steps=9 format=3 uid="uid://i1r2o8sh1u4"]
 
 [ext_resource type="Script" path="res://scenes/light_fearing_spike/light_fearing_spike.gd" id="1_bosob"]
 [ext_resource type="Texture2D" uid="uid://ticqfyv4mnj0" path="res://scenes/light_fearing_spike/Spikes roots.png" id="2_qennc"]
+[ext_resource type="AudioStream" uid="uid://bry8afy1tsuob" path="res://sounds/SpikesDisappear/SpikesDisappear_1.wav" id="3_00jfo"]
+[ext_resource type="AudioStream" uid="uid://dxcdnymqex5k6" path="res://sounds/SpikesAppear/SpikesAppear_1.wav" id="4_guk6b"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_184hy"]
 radius = 13.0
@@ -54,6 +56,16 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightStoneArea"]
 shape = SubResource("CircleShape2D_0bgpv")
 debug_color = Color(0.658824, 0, 0.160784, 0.309804)
+
+[node name="SpikesDisappear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_00jfo")
+volume_db = -10.0
+bus = &"Reverb"
+
+[node name="SpikesAppear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_guk6b")
+volume_db = -10.0
+bus = &"Reverb"
 
 [connection signal="body_entered" from="DeathArea" to="." method="process_collision_with_player"]
 [connection signal="body_entered" from="LightStoneArea" to="." method="stone_entering_processing"]
