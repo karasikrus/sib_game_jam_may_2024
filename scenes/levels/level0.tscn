@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dgqln40m6qks8" path="res://scenes/background/background1.PNG" id="1_8qcyi"]
 [ext_resource type="PackedScene" uid="uid://dy8rf7c7b6h00" path="res://scenes/spike/spike.tscn" id="2_44cte"]
-[ext_resource type="Texture2D" uid="uid://dscdolxi7h6ea" path="res://scenes/Test/TilemapTest/tileset2.png" id="3_cp8xm"]
+[ext_resource type="Texture2D" uid="uid://cy4tehyf5ivr5" path="res://scenes/Test/TilemapTest/tileset3.png" id="3_h1eyq"]
 [ext_resource type="PackedScene" uid="uid://bimfltqaiqd3v" path="res://scenes/player/player.tscn" id="4_y1mpv"]
 [ext_resource type="PackedScene" uid="uid://ph57i0v3pa0b" path="res://scenes/stone/stone.tscn" id="5_mcwew"]
 [ext_resource type="PackedScene" uid="uid://b28o3lmbjqw6p" path="res://scenes/light_setup/light_setup.tscn" id="6_duixn"]
@@ -61,7 +61,7 @@ polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wunka"]
-texture = ExtResource("3_cp8xm")
+texture = ExtResource("3_h1eyq")
 margins = Vector2i(0, 48)
 texture_region_size = Vector2i(48, 48)
 1:1/0 = 0
