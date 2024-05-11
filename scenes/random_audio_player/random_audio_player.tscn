@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb02qf5x3eoia"]
+
+[ext_resource type="Script" path="res://scenes/random_audio_player/random_audio_player.gd" id="1_dtu7h"]
+
+[node name="RandomAudioPlayer" type="Node"]
+script = ExtResource("1_dtu7h")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

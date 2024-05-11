@@ -634,11 +634,10 @@ position = Vector2(117, 291)
 
 [node name="Stone" parent="." instance=ExtResource("1_hx57r")]
 position = Vector2(571, 260)
-max_time_throw_charge = 1.5
-min_throw_power = 50.0
-max_throw_power = 600.0
+gravity_scale = 1.2
 
 [node name="LightSetup" parent="." instance=ExtResource("3_4nxkn")]
+visible = false
 
 [node name="EndLevelTrigger" parent="." instance=ExtResource("5_ptqrm")]
 position = Vector2(173, 712)

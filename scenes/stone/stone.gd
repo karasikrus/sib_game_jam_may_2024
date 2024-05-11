@@ -6,12 +6,19 @@ var can_player_throw = false
 var follow_target : Node2D = null
 var is_follow_active : bool = false
 
-@export var max_time_throw_charge = 2.0
-@export var min_throw_power : float = 100
-@export var max_throw_power : float = 450
+@export var max_time_throw_charge = 1.5
+@export var min_throw_power : float = 50
+@export var max_throw_power : float = 600
 
 @onready var throw_charge_timer = $ThrowChargeTimer
 @onready var sprite_2d = %Sprite2D
+@onready var stone_wall_hit_player = $AudioPlayers/StoneWallHitPlayer
+@onready var stone_landing_player = $AudioPlayers/StoneLandingPlayer
+@onready var collision_shape_2d = $CollisionShape2D
+@onready var hit_timer_wall = $AudioPlayers/HitTimerWall
+@onready var hit_timer_landing = $AudioPlayers/HitTimerLanding
+@onready var bottom_area_2d = $BottomArea2d
+
 
 var spawn_position : Vector2
 var start_rotation : float
@@ -105,3 +112,18 @@ func _on_pickup_area_body_exited(body):
 		is_player_near = false
 		
 
+
+func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	if bottom_area_2d.has_overlapping_bodies():
+		#landing
+		print("land")
+		if hit_timer_landing.time_left == 0:
+			stone_landing_player.play()
+			hit_timer_landing.start()
+	else:
+		#wall
+		print("wall")
+		if hit_timer_wall.time_left == 0:
+			stone_wall_hit_player.play()
+			hit_timer_wall.start()
+	

@@ -35,9 +35,14 @@ var is_jumping := false
 
 var spawn_position : Vector2
 var is_stone_in_hands := false
+var was_on_floor := true
 
 @onready var stone_locator: Node2D = %StoneLocator
-
+@onready var animation_player = $AnimationPlayer
+@onready var step = $AudioPlayers/Step
+@onready var jump_player = $AudioPlayers/JumpPlayer
+@onready var landing_player = $AudioPlayers/LandingPlayer
+@onready var respawn_player = $AudioPlayers/RespawnPlayer
 
 func _ready():
 	spawn_position = position
@@ -52,6 +57,10 @@ func get_input() -> Dictionary:
 		"released_jump": Input.is_action_just_released("jump") == true,
 		"e" : Input.is_action_just_pressed("take_stone") == true
 	}
+
+
+func _process(delta):
+	animate()
 
 
 func _physics_process(delta: float) -> void:
@@ -97,6 +106,8 @@ func set_direction(hor_direction) -> void:
 	# To animate, only scale the sprite
 	if hor_direction == 0:
 		return
+	if face_direction != hor_direction and animation_player.current_animation == "walk":
+		animation_player.seek(0.0, true)
 	apply_scale(Vector2(hor_direction * face_direction, 1)) # flip
 	face_direction = hor_direction # remember direction
 
@@ -121,6 +132,7 @@ func jump_logic(_delta: float) -> void:
 			velocity.y -= velocity.y
 		
 		velocity.y = -jump_force
+		jump_player.play()
 	
 	# We're not actually interested in checking if the player is holding the jump button
 #	if get_input()["jump"]:pass
@@ -142,7 +154,12 @@ func apply_gravity(delta: float) -> void:
 	
 	# No gravity if we are grounded
 	if is_on_floor():
+		if !was_on_floor:
+			landing_player.play()
+		was_on_floor = true
 		return
+	else:
+		was_on_floor = false
 	
 	# Normal gravity limit
 	if velocity.y <= gravity_max:
@@ -168,4 +185,16 @@ func timers(delta: float) -> void:
 
 func respawn() -> void:
 	position = spawn_position
-	
+
+func animate() -> void:
+	if is_on_floor():
+		if abs(velocity.x) > 1:
+			animation_player.play("walk")
+		else:
+			animation_player.play("idle")
+	else:
+		if velocity.y >= 0:
+			animation_player.play("jump")
+		else:
+			animation_player.play("fall")
+

@@ -3,6 +3,7 @@
 [node name="LightSetup" type="Node2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+z_as_relative = false
 color = Color(0, 0, 0, 1)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

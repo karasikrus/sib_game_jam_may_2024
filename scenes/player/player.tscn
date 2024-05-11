@@ -1,7 +1,319 @@
-[gd_scene load_steps=6 format=3 uid="uid://bimfltqaiqd3v"]
+[gd_scene load_steps=37 format=3 uid="uid://bimfltqaiqd3v"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pulaj"]
 [ext_resource type="Texture2D" uid="uid://cjusdb72r5cdj" path="res://scenes/player/Man_Idle.png" id="2_h57kc"]
+[ext_resource type="Texture2D" uid="uid://sn0indkey3et" path="res://scenes/player/man_walk.png" id="3_22rgp"]
+[ext_resource type="AudioStream" uid="uid://dcrxuaph84r8a" path="res://sounds/Steps/Step_1.wav" id="4_fbwdg"]
+[ext_resource type="AudioStream" uid="uid://cj0xmxyfwjh6e" path="res://sounds/Steps/Step_2.wav" id="5_jsvcv"]
+[ext_resource type="AudioStream" uid="uid://cqt1byowlymbn" path="res://sounds/Steps/Step_3.wav" id="6_pw57e"]
+[ext_resource type="AudioStream" uid="uid://bgymyssrbm5ow" path="res://sounds/Steps/Step_4.wav" id="7_l3p1m"]
+[ext_resource type="AudioStream" uid="uid://wc2udavsecmg" path="res://sounds/Steps/Step_5.wav" id="8_xta0r"]
+[ext_resource type="AudioStream" uid="uid://44vvhy608msq" path="res://sounds/Steps/Step_6.wav" id="9_2wo6d"]
+[ext_resource type="AudioStream" uid="uid://dn0qtb30i6v7j" path="res://sounds/Steps/Step_7.wav" id="10_k3anr"]
+[ext_resource type="AudioStream" uid="uid://blif8r2n5uccg" path="res://sounds/Steps/Step_8.wav" id="11_ihxky"]
+[ext_resource type="AudioStream" uid="uid://oadbytjia7xl" path="res://sounds/Steps/Step_9.wav" id="12_kox0n"]
+[ext_resource type="AudioStream" uid="uid://dv15cwv5yfy6i" path="res://sounds/Steps/Step_10.wav" id="13_64oix"]
+[ext_resource type="AudioStream" uid="uid://dkdfdtoh41roe" path="res://sounds/Jump/Jump_1.wav" id="14_jpi3o"]
+[ext_resource type="AudioStream" uid="uid://cf0d3gjx8h5kc" path="res://sounds/Jump/Jump_2.wav" id="15_gvk3e"]
+[ext_resource type="AudioStream" uid="uid://hb5vcrfyi3bl" path="res://sounds/Jump/Jump_3.wav" id="16_d0wb4"]
+[ext_resource type="AudioStream" uid="uid://debd2o0ioftd5" path="res://sounds/Jump/Jump_4.wav" id="17_cx3id"]
+[ext_resource type="AudioStream" uid="uid://ce3vrmer5n07" path="res://sounds/Jump/Jump_5.wav" id="18_bctix"]
+[ext_resource type="AudioStream" uid="uid://culltihgk5vmm" path="res://sounds/Landing/Landing_1.wav" id="19_880j2"]
+[ext_resource type="AudioStream" uid="uid://daf1ppmhh2c2q" path="res://sounds/Landing/Landing_2.wav" id="20_52uc4"]
+[ext_resource type="AudioStream" uid="uid://d1s6jbhaclt2t" path="res://sounds/Landing/Landing_3.wav" id="21_imeak"]
+[ext_resource type="AudioStream" uid="uid://cvj7ifvhdn02w" path="res://sounds/Landing/Landing_4.wav" id="22_qsx0x"]
+[ext_resource type="AudioStream" uid="uid://cr10o35p6l61t" path="res://sounds/Respawn/Respawn_1.wav" id="23_825su"]
+
+[sub_resource type="Animation" id="Animation_14mic"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_h57kc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_r2k7q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_h57kc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jne4e"]
+resource_name = "walk"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_22rgp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioPlayers/Step")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_8d1o0"]
+resource_name = "jump"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_22rgp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_uowqy"]
+resource_name = "fall"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_22rgp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yllnr"]
+_data = {
+"RESET": SubResource("Animation_r2k7q"),
+"fall": SubResource("Animation_uowqy"),
+"idle": SubResource("Animation_14mic"),
+"jump": SubResource("Animation_8d1o0"),
+"walk": SubResource("Animation_jne4e")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hkg6n"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hnvo4"]
 radius = 24.0
@@ -16,12 +328,68 @@ gradient = SubResource("Gradient_eusie")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ivecq"]
+random_pitch = 1.3
+streams_count = 10
+stream_0/stream = ExtResource("4_fbwdg")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_jsvcv")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_pw57e")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_l3p1m")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_xta0r")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("9_2wo6d")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("10_k3anr")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("11_ihxky")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("12_kox0n")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("13_64oix")
+stream_9/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ec5cj"]
+random_pitch = 1.3
+streams_count = 5
+stream_0/stream = ExtResource("14_jpi3o")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("15_gvk3e")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("16_d0wb4")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("17_cx3id")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("18_bctix")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s7qqy"]
+random_pitch = 1.3
+streams_count = 4
+stream_0/stream = ExtResource("19_880j2")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("20_52uc4")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("21_imeak")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("22_qsx0x")
+stream_3/weight = 1.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 3
 script = ExtResource("1_pulaj")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yllnr")
+}
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_hkg6n")
 position = Vector2(1, -38)
 scale = Vector2(0.735, 0.735)
 texture = ExtResource("2_h57kc")
@@ -36,8 +404,28 @@ debug_color = Color(0.756675, 0.0263507, 3.85046e-07, 0.42)
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -31)
 texture = SubResource("GradientTexture2D_ifps7")
-texture_scale = 1.4
+texture_scale = 1.8
 
 [node name="StoneLocator" type="Node2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -49)
+
+[node name="AudioPlayers" type="Node" parent="." groups=["player"]]
+
+[node name="Step" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = SubResource("AudioStreamRandomizer_ivecq")
+bus = &"Reverb"
+
+[node name="JumpPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = SubResource("AudioStreamRandomizer_ec5cj")
+volume_db = -10.0
+bus = &"Reverb"
+
+[node name="LandingPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = SubResource("AudioStreamRandomizer_s7qqy")
+volume_db = -10.0
+bus = &"Reverb"
+
+[node name="RespawnPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = ExtResource("23_825su")
+bus = &"sfx"
