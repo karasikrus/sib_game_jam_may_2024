@@ -88,6 +88,7 @@ func check_input():
 	if Input.is_action_just_pressed("take_stone") and can_player_throw:
 		throw_charge_timer.start(max_time_throw_charge)
 		throw_prepare_player.play()
+		(follow_target as Player).is_charging = true
 			
 	
 
@@ -109,6 +110,8 @@ func throw():
 	is_follow_active = false
 	can_player_throw = false
 	(follow_target as Player).is_stone_in_hands = false
+	(follow_target as Player).is_charging = false
+	(follow_target as Player).is_fully_charged = false
 	var normalized_time = 1 - throw_charge_timer.time_left / max_time_throw_charge
 	var final_throw_power = lerp(min_throw_power, max_throw_power, normalized_time)
 	apply_central_impulse(Vector2(1 * sign(follow_target.face_direction),-1) * final_throw_power)
@@ -148,3 +151,7 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 			stone_wall_hit_player.play()
 			hit_timer_wall.start()
 	
+
+
+func _on_throw_charge_timer_timeout():
+	(follow_target as Player).is_fully_charged = true

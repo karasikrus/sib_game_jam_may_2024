@@ -6,6 +6,7 @@ class_name Player
 var face_direction := 1
 var x_dir := 1
 
+
 @export var max_speed: float = 560/2
 @export var acceleration: float = 2880/2
 @export var turning_acceleration : float = 9600/2
@@ -35,9 +36,13 @@ var is_jumping := false
 
 var spawn_position : Vector2
 var is_stone_in_hands := false
+var is_throwing := false
 var was_on_floor := true
 
 var current_checkpoint_index = -1
+
+var is_charging := false
+var is_fully_charged := false
 
 @onready var stone_locator: Node2D = %StoneLocator
 @onready var animation_player = $AnimationPlayer
@@ -47,6 +52,7 @@ var current_checkpoint_index = -1
 @onready var respawn_player = $AudioPlayers/RespawnPlayer
 
 @onready var just_picked_up_timer = $JustPickedUpTimer
+@onready var just_throw_timer = $JustThrowTimer
 
 
 var is_jumping_on_mushroom : bool = false
@@ -196,11 +202,19 @@ func respawn() -> void:
 	position = spawn_position
 
 func animate() -> void:
+	if just_throw_timer.time_left > 0:
+		animation_player.play("throw")
+		return
 	if just_picked_up_timer.time_left > 0:
 		animation_player.play("pick_up")
 		return
 	if is_stone_in_hands:
-		animation_player.play("hold")
+		if !is_charging:
+			animation_player.play("hold")
+		elif !is_fully_charged:
+			animation_player.play("charge")
+		else:
+			animation_player.play("charge_full")
 		return
 	if is_on_floor():
 		if abs(velocity.x) > 1:
@@ -224,3 +238,7 @@ func set_check_point(index_in_checkpoint_list, player_pos, stone_pos):
 func just_pick_up():
 	is_stone_in_hands = true
 	just_picked_up_timer.start()
+	
+func just_threw():
+	is_throwing = true
+	just_throw_timer.start()
