@@ -19,6 +19,7 @@ var is_follow_active : bool = false
 @onready var hit_timer_landing = $AudioPlayers/HitTimerLanding
 @onready var bottom_area_2d = $BottomArea2d
 @onready var throw_prepare_player = $AudioPlayers/ThrowPreparePlayer
+@onready var throw_player = $AudioPlayers/ThrowPlayer
 
 @onready var line_2d = $Node2D/Line2D
 
@@ -112,6 +113,8 @@ func throw():
 	(follow_target as Player).is_stone_in_hands = false
 	(follow_target as Player).is_charging = false
 	(follow_target as Player).is_fully_charged = false
+	(follow_target as Player).just_threw()
+	throw_player.play()
 	var normalized_time = 1 - throw_charge_timer.time_left / max_time_throw_charge
 	var final_throw_power = lerp(min_throw_power, max_throw_power, normalized_time)
 	apply_central_impulse(Vector2(1 * sign(follow_target.face_direction),-1) * final_throw_power)

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://i1r2o8sh1u4" path="res://scenes/light_fearing_spike/light_fearing_spike.tscn" id="7_m0c5x"]
 [ext_resource type="PackedScene" uid="uid://d16hpuvi3jrvs" path="res://scenes/mushroom/mushroom.tscn" id="8_76uj2"]
 [ext_resource type="PackedScene" uid="uid://bi70y2ydkssn6" path="res://scenes/checkpoints/checkpoint.tscn" id="9_2topf"]
-[ext_resource type="PackedScene" uid="uid://6ms3fw7v3joa" path="res://scenes/snail/snail.tscn" id="11_6i1g5"]
+[ext_resource type="PackedScene" uid="uid://dxxk57hn8kdlw" path="res://scenes/npc/npc.tscn" id="12_45vbx"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_55suy"]
 polygon = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
@@ -662,8 +662,9 @@ position = Vector2(123, 33)
 [node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("9_2topf")]
 position = Vector2(924, 193)
 
-[node name="SnailHolder" parent="." instance=ExtResource("11_6i1g5")]
-position = Vector2(431, 272)
+[node name="Npc" parent="." instance=ExtResource("12_45vbx")]
+position = Vector2(1024, 213)
+scale = Vector2(0.66, 0.66)
 
 [editable path="EndLevelTrigger"]
 [editable path="Checkpoints/Checkpoint"]
