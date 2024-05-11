@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bwsob4g505hmh"]
+[gd_scene load_steps=30 format=3 uid="uid://bwsob4g505hmh"]
 
 [ext_resource type="PackedScene" uid="uid://ph57i0v3pa0b" path="res://scenes/stone/stone.tscn" id="1_hx57r"]
 [ext_resource type="Texture2D" uid="uid://dgqln40m6qks8" path="res://scenes/background/background1.PNG" id="1_ycrp0"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dy8rf7c7b6h00" path="res://scenes/spike/spike.tscn" id="5_4yugw"]
 [ext_resource type="PackedScene" uid="uid://b5icybnplwwlx" path="res://scenes/end_level_trigger/end_level_trigger.tscn" id="5_ptqrm"]
 [ext_resource type="PackedScene" uid="uid://i1r2o8sh1u4" path="res://scenes/light_fearing_spike/light_fearing_spike.tscn" id="7_m0c5x"]
+[ext_resource type="PackedScene" uid="uid://d16hpuvi3jrvs" path="res://scenes/mushroom/mushroom.tscn" id="8_76uj2"]
 [ext_resource type="PackedScene" uid="uid://bi70y2ydkssn6" path="res://scenes/checkpoints/checkpoint.tscn" id="9_2topf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_55suy"]
@@ -640,6 +641,10 @@ gravity_scale = 1.2
 [node name="LightSetup" parent="." instance=ExtResource("3_4nxkn")]
 visible = false
 
+[node name="Mushroom" parent="." instance=ExtResource("8_76uj2")]
+position = Vector2(653, 296)
+rotation = 0.640536
+
 [node name="EndLevelTrigger" parent="." instance=ExtResource("5_ptqrm")]
 position = Vector2(173, 712)
 
@@ -659,3 +664,4 @@ position = Vector2(924, 193)
 
 [editable path="EndLevelTrigger"]
 [editable path="Checkpoints/Checkpoint"]
+[editable path="Checkpoints/Checkpoint2"]

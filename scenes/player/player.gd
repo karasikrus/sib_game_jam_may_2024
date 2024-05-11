@@ -46,6 +46,9 @@ var current_checkpoint_index = -1
 @onready var landing_player = $AudioPlayers/LandingPlayer
 @onready var respawn_player = $AudioPlayers/RespawnPlayer
 
+var is_jumping_on_mushroom : bool = false
+var mushroom_jump_direction : Vector2 = Vector2(0, 0)
+
 func _ready():
 	spawn_position = position
 
