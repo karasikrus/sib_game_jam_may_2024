@@ -19,16 +19,20 @@ var is_follow_active : bool = false
 @onready var hit_timer_landing = $AudioPlayers/HitTimerLanding
 @onready var bottom_area_2d = $BottomArea2d
 
+@onready var line_2d = $Node2D/Line2D
 
 var spawn_position : Vector2
 var start_rotation : float
 
 var is_respawning := false
 
+@export var max_points_in_line = 150
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_position = global_position
 	start_rotation = sprite_2d.global_rotation
+	line_2d.clear_points()
+	line_2d.top_level = true
 	pass # Replace with function body.
 
 func respawn():
@@ -53,7 +57,12 @@ func _physics_process(delta: float) -> void:
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	line_2d.add_point(line_2d.to_local(global_position))
+	if line_2d.get_point_count() > max_points_in_line:
+		line_2d.remove_point(0)
 	rotate_sprite()
+	
+	
 
 func rotate_sprite():
 	sprite_2d.global_rotation = start_rotation

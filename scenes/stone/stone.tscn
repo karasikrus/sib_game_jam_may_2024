@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ph57i0v3pa0b"]
+[gd_scene load_steps=26 format=3 uid="uid://ph57i0v3pa0b"]
 
 [ext_resource type="Script" path="res://scenes/stone/stone.gd" id="1_auo2j"]
 [ext_resource type="Texture2D" uid="uid://bn1h6anjntutl" path="res://scenes/stone/stone1.png" id="2_wdnl5"]
@@ -31,6 +31,11 @@ height = 18.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qvdpj"]
 light_mode = 1
+
+[sub_resource type="Curve" id="Curve_cklqm"]
+max_value = 5.0
+_data = [Vector2(0.0265781, 0), 0.0, 0.0, 0, 0, Vector2(1, 2.21174), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c2e1q"]
 radius = 23.0
@@ -111,6 +116,11 @@ texture = ExtResource("2_wdnl5")
 [node name="PointLight2D" type="PointLight2D" parent="Node2D"]
 texture = ExtResource("3_7pnkb")
 texture_scale = 5.0
+
+[node name="Line2D" type="Line2D" parent="Node2D"]
+width = 2.0
+width_curve = SubResource("Curve_cklqm")
+default_color = Color(0.0941176, 0.596078, 0.607843, 0.541176)
 
 [node name="PickupArea" type="Area2D" parent="."]
 visible = false

@@ -10,6 +10,7 @@ var movement_timer : Timer = null
 
 @onready var collision_shape = $Area2D/CollisionShape2D
 @onready var line_2d : Line2D = $Line2D
+@export var max_points_in_line = 150
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	movement_timer = Timer.new()
@@ -52,7 +53,7 @@ func _process(delta):
 		parameter = 1 - parameter
 	position = lerp(first_point.position, second_point.position, parameter)
 
-	if line_2d.get_point_count() > 150:
+	if line_2d.get_point_count() > max_points_in_line:
 		line_2d.remove_point(0)
 		
 	var left_position : Vector2 = line_2d.to_local(global_position)
