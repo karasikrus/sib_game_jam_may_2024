@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dtj41fj5hv6f1"]
+[gd_scene load_steps=17 format=3 uid="uid://dtj41fj5hv6f1"]
 
 [ext_resource type="Script" path="res://scenes/custom_layer_for_dialogic/VisualNovelTextbox/vn_textbox_layer.gd" id="1_bpydr"]
 [ext_resource type="Script" path="res://scenes/custom_layer_for_dialogic/VisualNovelTextbox/animations.gd" id="2_xy7a2"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://b0rpqfg4fhebk" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/next.svg" id="6_uch03"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="7_bi7sh"]
 [ext_resource type="StyleBox" uid="uid://m7gyepkysu83" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_name_label_panel.tres" id="9_yg8ig"]
-[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="11_5gdjl"]
 
 [sub_resource type="Animation" id="Animation_au0a2"]
 length = 0.001
@@ -272,7 +271,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -13.0
+offset_top = 51.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -346,7 +346,3 @@ theme_override_font_sizes/font_size = 15
 text = "S"
 script = ExtResource("7_bi7sh")
 name_label_root = NodePath("..")
-
-[node name="Sprite2D" type="Sprite2D" parent="Anchor/AnimationParent/Sizer"]
-position = Vector2(1066, 798)
-texture = ExtResource("11_5gdjl")

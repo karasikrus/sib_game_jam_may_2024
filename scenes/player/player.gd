@@ -251,6 +251,7 @@ func just_threw():
 	just_throw_timer.start()
 	
 func freeze_movement():
+	velocity = Vector2(0.0, 0.0)
 	freeze_input = true
 	pass
 	

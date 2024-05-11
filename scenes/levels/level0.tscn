@@ -698,7 +698,7 @@ gravity_scale = 1.2
 
 [node name="EndLevelTrigger" parent="." instance=ExtResource("7_huxwx")]
 position = Vector2(173, 712)
-next_scene = "res://scenes/levels/level1.tscn"
+next_scene = "res://scenes/levels/level_safe_1.tscn"
 
 [node name="Area2D" parent="EndLevelTrigger" index="0"]
 position = Vector2(-53, 1527)

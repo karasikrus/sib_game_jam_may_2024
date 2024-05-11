@@ -760,6 +760,7 @@ layer_0/tile_data = PackedInt32Array(1507367, 65536, 2, 1441831, 65536, 2, 13762
 
 [node name="EndLevelTrigger" parent="." instance=ExtResource("9_bgps6")]
 position = Vector2(363, 719)
+next_scene = "res://scenes/menu/level_safe_2.tscn"
 
 [node name="Area2D" parent="EndLevelTrigger" index="0"]
 position = Vector2(763, 1139)
