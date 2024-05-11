@@ -46,6 +46,8 @@ var current_checkpoint_index = -1
 @onready var landing_player = $AudioPlayers/LandingPlayer
 @onready var respawn_player = $AudioPlayers/RespawnPlayer
 
+@onready var just_picked_up_timer = $JustPickedUpTimer
+
 
 var is_jumping_on_mushroom : bool = false
 var mushroom_jump_direction : Vector2 = Vector2(0, 0)
@@ -194,6 +196,12 @@ func respawn() -> void:
 	position = spawn_position
 
 func animate() -> void:
+	if just_picked_up_timer.time_left > 0:
+		animation_player.play("pick_up")
+		return
+	if is_stone_in_hands:
+		animation_player.play("hold")
+		return
 	if is_on_floor():
 		if abs(velocity.x) > 1:
 			animation_player.play("walk")
@@ -211,3 +219,8 @@ func set_check_point(index_in_checkpoint_list, player_pos, stone_pos):
 		current_checkpoint_index = index_in_checkpoint_list
 		spawn_position = player_pos
 		(get_tree().get_first_node_in_group("stone") as Stone).spawn_position = stone_pos
+
+
+func just_pick_up():
+	is_stone_in_hands = true
+	just_picked_up_timer.start()

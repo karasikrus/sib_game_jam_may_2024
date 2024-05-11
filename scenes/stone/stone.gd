@@ -79,7 +79,7 @@ func check_input():
 			if is_player_near:
 				set_follow_active(true, get_tree().get_first_node_in_group("player"))
 				can_player_throw = true
-				(follow_target as Player).is_stone_in_hands = true
+				(follow_target as Player).just_pick_up()
 		else:
 			throw()
 	

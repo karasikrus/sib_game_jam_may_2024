@@ -1,11 +1,15 @@
-[gd_scene load_steps=37 format=3 uid="uid://bimfltqaiqd3v"]
+[gd_scene load_steps=43 format=3 uid="uid://bimfltqaiqd3v"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pulaj"]
 [ext_resource type="Texture2D" uid="uid://cjusdb72r5cdj" path="res://scenes/player/Man_Idle.png" id="2_h57kc"]
 [ext_resource type="Texture2D" uid="uid://sn0indkey3et" path="res://scenes/player/man_walk.png" id="3_22rgp"]
+[ext_resource type="Texture2D" uid="uid://nc80ul5sq76o" path="res://scenes/player/man_fall.png" id="3_tgfqs"]
+[ext_resource type="Texture2D" uid="uid://dgpq40cq8klef" path="res://scenes/player/man_jump.png" id="4_4tqvu"]
 [ext_resource type="AudioStream" uid="uid://dcrxuaph84r8a" path="res://sounds/Steps/Step_1.wav" id="4_fbwdg"]
 [ext_resource type="AudioStream" uid="uid://cj0xmxyfwjh6e" path="res://sounds/Steps/Step_2.wav" id="5_jsvcv"]
+[ext_resource type="Texture2D" uid="uid://vh27jmlen5vd" path="res://scenes/player/man_hold.png" id="6_f8u0l"]
 [ext_resource type="AudioStream" uid="uid://cqt1byowlymbn" path="res://sounds/Steps/Step_3.wav" id="6_pw57e"]
+[ext_resource type="Texture2D" uid="uid://csh4dbrlumj12" path="res://scenes/player/man_pickup.png" id="7_kf26j"]
 [ext_resource type="AudioStream" uid="uid://bgymyssrbm5ow" path="res://sounds/Steps/Step_4.wav" id="7_l3p1m"]
 [ext_resource type="AudioStream" uid="uid://wc2udavsecmg" path="res://sounds/Steps/Step_5.wav" id="8_xta0r"]
 [ext_resource type="AudioStream" uid="uid://44vvhy608msq" path="res://sounds/Steps/Step_6.wav" id="9_2wo6d"]
@@ -74,6 +78,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StoneLocator:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -49)]
+}
 
 [sub_resource type="Animation" id="Animation_uowqy"]
 resource_name = "fall"
@@ -89,7 +105,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_22rgp")]
+"values": [ExtResource("3_tgfqs")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -101,7 +117,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -122,10 +138,10 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2]
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_14mic"]
@@ -195,7 +211,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_22rgp")]
+"values": [ExtResource("4_4tqvu")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -207,7 +223,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -228,10 +244,10 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.174715),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_jne4e"]
@@ -304,12 +320,144 @@ tracks/4/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ybi0k"]
+resource_name = "hold"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_f8u0l")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StoneLocator:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -49)]
+}
+
+[sub_resource type="Animation" id="Animation_tdy45"]
+resource_name = "pick_up"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_kf26j")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StoneLocator:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 3.73213, 1, 0.129408),
+"update": 0,
+"values": [Vector2(23, -12), Vector2(21, -16), Vector2(18, -36), Vector2(0, -49)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yllnr"]
 _data = {
 "RESET": SubResource("Animation_r2k7q"),
 "fall": SubResource("Animation_uowqy"),
+"hold": SubResource("Animation_ybi0k"),
 "idle": SubResource("Animation_14mic"),
 "jump": SubResource("Animation_8d1o0"),
+"pick_up": SubResource("Animation_tdy45"),
 "walk": SubResource("Animation_jne4e")
 }
 
@@ -429,3 +577,7 @@ bus = &"Reverb"
 [node name="RespawnPlayer" type="AudioStreamPlayer" parent="AudioPlayers"]
 stream = ExtResource("23_825su")
 bus = &"sfx"
+
+[node name="JustPickedUpTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
