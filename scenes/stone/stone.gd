@@ -162,13 +162,11 @@ func _on_pickup_area_body_exited(body):
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	if bottom_area_2d.has_overlapping_bodies():
 		#landing
-		print("land")
 		if hit_timer_landing.time_left == 0:
 			stone_landing_player.play()
 			hit_timer_landing.start()
 	else:
 		#wall
-		print("wall")
 		if hit_timer_wall.time_left == 0:
 			stone_wall_hit_player.play()
 			hit_timer_wall.start()
