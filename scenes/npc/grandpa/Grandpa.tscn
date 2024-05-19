@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhdynjqu7deut"]
+[gd_scene load_steps=8 format=3 uid="uid://dhdynjqu7deut"]
 
 [ext_resource type="Script" path="res://scenes/npc/grandpa/Grandpa.gd" id="1_xu0be"]
 [ext_resource type="Texture2D" uid="uid://dwfnbdasb7epd" path="res://scenes/npc/grandpa/npc-elder.png" id="2_vff1d"]
+[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="3_ahewn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jimj3"]
 size = Vector2(122, 120)
@@ -59,6 +60,12 @@ shape = SubResource("RectangleShape2D_jimj3")
 libraries = {
 "": SubResource("AnimationLibrary_cmjd8")
 }
+
+[node name="InteractionHint" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(65, -84)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ahewn")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_dialog_area_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_dialog_area_body_exited"]

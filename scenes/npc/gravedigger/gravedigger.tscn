@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://uxshoixjayoa"]
+[gd_scene load_steps=8 format=3 uid="uid://uxshoixjayoa"]
 
 [ext_resource type="Script" path="res://scenes/npc/gravedigger/gravedigger.gd" id="1_ytovu"]
 [ext_resource type="Texture2D" uid="uid://cawsjrapqq4ty" path="res://scenes/npc/gravedigger/npc-mogilshik.png" id="2_kdl10"]
+[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="3_xi5at"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jimj3"]
 size = Vector2(122, 120)
@@ -59,6 +60,12 @@ shape = SubResource("RectangleShape2D_jimj3")
 libraries = {
 "": SubResource("AnimationLibrary_t1l2k")
 }
+
+[node name="InteractionHint" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(65, -84)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_xi5at")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_dialog_area_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_dialog_area_body_exited"]
