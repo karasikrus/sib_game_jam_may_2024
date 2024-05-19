@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/npc/butterfly/butterfly.gd" id="1_dn126"]
 [ext_resource type="Texture2D" uid="uid://cpiasj6x5jnrd" path="res://scenes/npc/butterfly/npc-babochy.png" id="2_tnihr"]
-[ext_resource type="Texture2D" uid="uid://bgu4lnsafosmc" path="res://icon.svg" id="3_5lxpp"]
+[ext_resource type="Texture2D" uid="uid://by0xpdkqxrnvi" path="res://scenes/npc/F.png" id="3_cq35d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jimj3"]
 size = Vector2(122, 120)
@@ -63,9 +63,9 @@ libraries = {
 
 [node name="InteractionHint" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(65, -84)
+position = Vector2(48, -50)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_5lxpp")
+texture = ExtResource("3_cq35d")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_dialog_area_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_dialog_area_body_exited"]
