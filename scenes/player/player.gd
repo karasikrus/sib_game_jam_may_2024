@@ -43,6 +43,7 @@ var current_checkpoint_index = -1
 
 var is_charging := false
 var is_fully_charged := false
+var is_full_charge_anim_played := false
 
 @onready var stone_locator: Node2D = %StoneLocator
 @onready var animation_player = $AnimationPlayer
@@ -220,8 +221,11 @@ func animate() -> void:
 			animation_player.play("hold")
 		elif !is_fully_charged:
 			animation_player.play("charge")
+			is_full_charge_anim_played = false
 		else:
-			animation_player.play("charge_full")
+			if !is_full_charge_anim_played:
+				animation_player.play("charge_full")
+				is_full_charge_anim_played = true
 		return
 	if is_on_floor():
 		if abs(velocity.x) > 1:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bimfltqaiqd3v"]
+[gd_scene load_steps=57 format=3 uid="uid://bimfltqaiqd3v"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_pulaj"]
 [ext_resource type="Texture2D" uid="uid://cjusdb72r5cdj" path="res://scenes/player/Man_Idle.png" id="2_h57kc"]
@@ -30,6 +30,12 @@
 [ext_resource type="AudioStream" uid="uid://cvj7ifvhdn02w" path="res://sounds/Landing/Landing_4.wav" id="22_qsx0x"]
 [ext_resource type="AudioStream" uid="uid://cr10o35p6l61t" path="res://sounds/Respawn/Respawn_1.wav" id="23_825su"]
 [ext_resource type="AudioStream" uid="uid://cckt0idxhtr0o" path="res://sounds/PickUp/PickUp.wav" id="28_ijmpf"]
+[ext_resource type="AudioStream" uid="uid://cxwavbkmmoow6" path="res://sounds/ThrowPrepareFinished/ThrowPrepareFinished_1.wav" id="31_teh4w"]
+[ext_resource type="AudioStream" uid="uid://c3aklun3l6l28" path="res://sounds/ThrowPrepareFinished/ThrowPrepareFinished_2.wav" id="32_bcnof"]
+[ext_resource type="AudioStream" uid="uid://bj34dlddcei5k" path="res://sounds/ThrowRelease/ThrowRelease_1.wav" id="33_i0g7m"]
+[ext_resource type="AudioStream" uid="uid://dryd1l32x2j38" path="res://sounds/ThrowRelease/ThrowRelease_2.wav" id="34_fur1b"]
+[ext_resource type="AudioStream" uid="uid://blk420vibqqw5" path="res://sounds/ThrowRelease/ThrowRelease_3.wav" id="35_3em6v"]
+[ext_resource type="AudioStream" uid="uid://7ti5bi5h71t2" path="res://sounds/ThrowRelease/ThrowRelease_4.wav" id="36_u3cpt"]
 
 [sub_resource type="Animation" id="Animation_r2k7q"]
 length = 0.001
@@ -186,7 +192,6 @@ tracks/4/keys = {
 [sub_resource type="Animation" id="Animation_1wvwh"]
 resource_name = "charge_full"
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -246,6 +251,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -44)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioPlayers/ThrowPrepareFinished")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_uowqy"]
@@ -614,6 +633,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, -44)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioPlayers/ThrowRelease")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_jne4e"]
 resource_name = "walk"
@@ -788,6 +821,26 @@ stream_2/weight = 1.0
 stream_3/stream = ExtResource("22_qsx0x")
 stream_3/weight = 1.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6ryu8"]
+random_pitch = 1.2
+streams_count = 2
+stream_0/stream = ExtResource("31_teh4w")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("32_bcnof")
+stream_1/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1himk"]
+random_pitch = 1.2
+streams_count = 4
+stream_0/stream = ExtResource("33_i0g7m")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("34_fur1b")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("35_3em6v")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("36_u3cpt")
+stream_3/weight = 1.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 3
 script = ExtResource("1_pulaj")
@@ -843,6 +896,16 @@ bus = &"sfx"
 [node name="PickUp" type="AudioStreamPlayer" parent="AudioPlayers"]
 stream = ExtResource("28_ijmpf")
 volume_db = -3.0
+bus = &"Reverb"
+
+[node name="ThrowPrepareFinished" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = SubResource("AudioStreamRandomizer_6ryu8")
+volume_db = -15.0
+bus = &"Reverb"
+
+[node name="ThrowRelease" type="AudioStreamPlayer" parent="AudioPlayers"]
+stream = SubResource("AudioStreamRandomizer_1himk")
+volume_db = -15.0
 bus = &"Reverb"
 
 [node name="JustPickedUpTimer" type="Timer" parent="."]
