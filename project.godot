@@ -28,11 +28,16 @@ directories/dch_directory={
 "Butterfly": "res://timelines/FirstPerson/Butterfly.dch",
 "Grandpa": "res://timelines/ThirdPerson/Grandpa.dch",
 "Gravedigger": "res://timelines/FirstPerson/Gravedigger.dch",
-"character_test": "res://scenes/dialogues/characters/character_test.dch"
+"character_test": "res://scenes/dialogues/characters/character_test.dch",
+"shrrom_fan": "res://timelines/shroom_fan/shrrom_fan.dch"
 }
 directories/dtl_directory={
 "SecondPerson/timeline_1": "res://timelines/SecondPerson/timeline_1.dtl",
 "ThirdPerson/timeline_1": "res://timelines/ThirdPerson/timeline_1.dtl",
+"shroom_fan_1": "res://timelines/shroom_fan/shroom_fan_1.dtl",
+"shroom_fan_2": "res://timelines/shroom_fan/shroom_fan_2.dtl",
+"shroom_fan_3": "res://timelines/shroom_fan/shroom_fan_3.dtl",
+"shroom_fan_4": "res://timelines/shroom_fan/shroom_fan_4.dtl",
 "timeline_1": "res://timelines/FirstPerson/timeline_1.dtl",
 "timeline_test": "res://scenes/dialogues/timelines/timeline_test.dtl"
 }

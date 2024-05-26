@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://bm8xrd8wjpwbq"]
+
+[ext_resource type="Script" path="res://scenes/npc/gravedigger/gravedigger.gd" id="1_kxe30"]
+[ext_resource type="Texture2D" uid="uid://dui10q6aun2cf" path="res://scenes/npc/shroom_fan/npc-shroom.png" id="2_rxqyx"]
+[ext_resource type="Texture2D" uid="uid://by0xpdkqxrnvi" path="res://scenes/npc/F.png" id="3_ih2n3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jimj3"]
+size = Vector2(122, 120)
+
+[sub_resource type="Animation" id="Animation_wlan7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8oldf"]
+resource_name = "idle"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t1l2k"]
+_data = {
+"RESET": SubResource("Animation_wlan7"),
+"idle": SubResource("Animation_8oldf")
+}
+
+[node name="ShroomFan" type="Node2D"]
+script = ExtResource("1_kxe30")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rxqyx")
+hframes = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_jimj3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t1l2k")
+}
+autoplay = "idle"
+
+[node name="InteractionHint" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -39)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ih2n3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_dialog_area_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_dialog_area_body_exited"]

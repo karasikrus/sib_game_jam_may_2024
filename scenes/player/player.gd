@@ -222,10 +222,14 @@ func animate() -> void:
 		elif !is_fully_charged:
 			animation_player.play("charge")
 			is_full_charge_anim_played = false
+			return
 		else:
 			if !is_full_charge_anim_played:
 				animation_player.play("charge_full")
 				is_full_charge_anim_played = true
+				return
+			else:
+				return
 		return
 	if is_on_floor():
 		if abs(velocity.x) > 1:

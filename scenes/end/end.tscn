@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bp81lgom8pksp"]
+[gd_scene load_steps=13 format=3 uid="uid://bp81lgom8pksp"]
 
 [ext_resource type="Texture2D" uid="uid://boyj471i3vsrv" path="res://scenes/end/end1.png" id="1_e2g84"]
+[ext_resource type="Script" path="res://scenes/end/end.gd" id="2_3gnnl"]
 [ext_resource type="Texture2D" uid="uid://cuodpunym8xok" path="res://scenes/end/end2.png" id="2_mchfu"]
 [ext_resource type="Texture2D" uid="uid://vw6khs2gul0r" path="res://scenes/end/end3.png" id="3_2pgdb"]
 [ext_resource type="Texture2D" uid="uid://bpj3owl3xqogo" path="res://scenes/end/end4.png" id="4_g8mt7"]
@@ -13,22 +14,6 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_wq6o1"]
 gradient = SubResource("Gradient_uiygx")
-
-[sub_resource type="Animation" id="Animation_1jv6p"]
-resource_name = "new_animation"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6.1, 8.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("1_e2g84"), ExtResource("2_mchfu"), ExtResource("3_2pgdb"), ExtResource("4_g8mt7"), ExtResource("5_n1647")]
-}
 
 [sub_resource type="Animation" id="Animation_6g5a6"]
 length = 0.001
@@ -45,6 +30,37 @@ tracks/0/keys = {
 "values": [ExtResource("1_e2g84")]
 }
 
+[sub_resource type="Animation" id="Animation_1jv6p"]
+resource_name = "new_animation"
+length = 22.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8, 12, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_e2g84"), ExtResource("2_mchfu"), ExtResource("3_2pgdb"), ExtResource("4_g8mt7"), ExtResource("5_n1647")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(22),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_to_main_menu"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8xky0"]
 _data = {
 "RESET": SubResource("Animation_6g5a6"),
@@ -59,6 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_e2g84")
 expand_mode = 2
+script = ExtResource("2_3gnnl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1
