@@ -63,7 +63,7 @@ libraries = {
 
 [node name="InteractionHint" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(47, -49)
+position = Vector2(0, -52)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_ka7ff")
 
